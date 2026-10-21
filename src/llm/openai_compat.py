@@ -19,7 +19,12 @@ class OpenAICompatChat:
         self.client = client or httpx.Client(timeout=timeout)
 
     def _post(self, body):
-        response = self.client.post(self.url, json=body, headers={"Authorization": f"Bearer {self.api_key}"})
+        try:
+            response = self.client.post(self.url, json=body, headers={"Authorization": f"Bearer {self.api_key}"})
+        except httpx.TimeoutException:
+            raise ApiError(408, "the request timed out")
+        except httpx.TransportError as error:
+            raise ApiError(503, f"network problem: {error}")
         if response.status_code != 200:
             raise ApiError(response.status_code, response.text)
         return response.json()

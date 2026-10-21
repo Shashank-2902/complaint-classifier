@@ -20,19 +20,33 @@ Full tables, F1 per class and the confidence thresholds are in [results/results.
 Two splits: a **random** split (easy: test complaints look like the training ones) and a **time** split (train on the oldest 70 percent,
 test on the newest 20 percent, 2024-07-29 to 2026-10-18).
 
-| System | Random split accuracy | Random split macro-F1 | Time split accuracy | Time split macro-F1 | Latency per item | Cost per 1000 items |
+**Full test sets (13,840 complaints each)**
+
+| System | Random: accuracy | Random: macro-F1 | Time: accuracy | Time: macro-F1 | Latency per item | Cost per 1000 items |
 | --- | --- | --- | --- | --- | --- | --- |
 | TF-IDF + logistic regression | 0.767 | 0.742 | 0.713 | 0.674 | 2 ms | 0 (local) |
 | Sentence embeddings + logistic regression | 0.756 | 0.736 | 0.705 | 0.662 | 23 to 25 ms | 0 (local) |
 | Fine-tuned small encoder (DistilBERT) | not run | not run | not run | not run | not run | not run |
-| Groq zero-shot (`openai/gpt-oss-20b`) | not run | not run | not run | not run | not run | not run |
-| Z.ai zero-shot (`glm-4.7-flash`, free) | not run | not run | not run | not run | not run | not run |
 
-Each test set has 13,840 complaints. Latency is the median time for one complaint on this laptop CPU (Intel, no GPU), including the embedding step.
+**The fixed subset of 1,000 test items (the same items for every system, test items in both splits)**
+
+| System | Random: accuracy | Random: macro-F1 | Time: accuracy | Time: macro-F1 | Latency per item | Cost per 1000 items |
+| --- | --- | --- | --- | --- | --- | --- |
+| TF-IDF + logistic regression | 0.775 | 0.745 | 0.735 | 0.678 | 2 ms | 0 (local) |
+| Sentence embeddings + logistic regression | 0.769 | 0.727 | 0.715 | 0.654 | 23 to 25 ms | 0 (local) |
+| Fine-tuned small encoder (DistilBERT) | not run | not run | not run | not run | not run | not run |
+| Z.ai zero-shot (`glm-4.5-flash`, free) | 0.565 | 0.592 | 0.565 | 0.592 | 719 ms | $0 (free plan) |
+| Groq zero-shot (`openai/gpt-oss-20b`) | not run | not run | not run | not run | not run | not run |
+
+The zero-shot models are not trained, so they give the same answers for both splits, scored on the same 1,000 items. Their latency includes the network.
+Latency of the local systems is the median time for one complaint on this laptop CPU (Intel, no GPU), including the embedding step.
 
 ### What the results say
 
 - **The classical baseline wins so far.** TF-IDF with logistic regression is as good as or better than the embedding model, and it is about 10 times faster.
+- **Zero-shot is clearly worse here.** GLM-4.5-Flash scores 0.565 accuracy against 0.735 for TF-IDF on the same items. It understands the complaints but cannot know NHTSA's labelling rules,
+  for example when staff use `ENGINE` and when `ENGINE AND ENGINE COOLING`, or what `OTHER` contains. It does better than TF-IDF only on classes whose frequency changed a lot over time
+  (`AIR BAGS`, `FORWARD COLLISION AVOIDANCE`), with only 36 and 19 items.
 - **The time split is harder.** Accuracy drops by about 5 points and macro-F1 by about 7 points on newer complaints. NHTSA's component use changes over time:
   air bag complaints are 15.5 percent of the training part and 3.5 percent of the test part, `ENGINE AND ENGINE COOLING` goes from 0.7 to 3.5 percent, and
   `FORWARD COLLISION AVOIDANCE` hardly existed before 2020. The F1 of `ENGINE AND ENGINE COOLING` falls to 0.29 on the time split.
@@ -44,13 +58,12 @@ Each test set has 13,840 complaints. Latency is the median time for one complain
   `ENGINE` and `ENGINE AND ENGINE COOLING`, two NHTSA components with similar content. Reading real examples, the model is clearly wrong in about two of seven groups of mistakes,
   and the label is arguable in most of the others. See [results/error_analysis.md](results/error_analysis.md) (these judgements are my own reading, not a measurement).
 
-### The two rows that are not run yet
+### The rows that are not run yet
 
 - **Fine-tuned encoder.** It needs a GPU, which this project's laptop does not have. The training script and a Colab/Kaggle notebook are ready
   ([src/finetune/](src/finetune/)). Start it yourself, see below. Until its predictions are added to `results/predictions/`, the row says "not run".
-- **Zero-shot language models.** Groq's free plan allows only 200,000 tokens per day for `gpt-oss-20b`, about 440 answers per day, so that run on 1,000 items takes a few days
-  (cached and resumable, see below). A second free option, Z.ai's `glm-4.7-flash` (open-weight, 1 request at a time, no daily cap listed in the console), can fill a second row
-  faster. Until a run finishes, its row says "not run".
+- **Groq `gpt-oss-20b`.** Groq's free plan allows only 200,000 tokens per day for this model, about 440 answers per day, so this run on the 1,000 items takes a few days.
+  It is cached and resumable (see below) and will be added when it finishes. Until then, its row says "not run".
 
 ## How the comparison is kept fair
 
@@ -71,7 +84,7 @@ Python 3.11. For the tests you need only `pip install -r requirements-dev.txt`.
 ```bash
 python -m venv .venv
 .venv/Scripts/pip install -r requirements-dev.txt            # Linux/macOS: .venv/bin/pip
-.venv/Scripts/python -m pytest                              # 84 tests, no GPU, no Groq key, no download needed
+.venv/Scripts/python -m pytest                              # 86 tests, no GPU, no Groq key, no download needed
 ```
 
 The full experiment (about 190 MB download, a few hours on a laptop):
@@ -94,7 +107,7 @@ python -m src.evaluate.error_analysis --system tfidf_lr --scheme time
 
 ```bash
 python -m src.llm.run_llm --provider groq --wait   # Groq gpt-oss-20b. --wait: at the daily token limit, wait and continue (keep the computer awake)
-python -m src.llm.run_llm --provider zai           # Z.ai glm-4.7-flash (free), one request at a time
+python -m src.llm.run_llm --provider zai           # Z.ai glm-4.5-flash (free), one request at a time
 ```
 
 Every raw answer is cached in `results/llm_cache/`, so a stopped run resumes without new cost. The whole run is about 450,000 tokens, roughly 6 US cents at the listed price.
@@ -123,7 +136,7 @@ src/finetune/        training script and the Colab/Kaggle notebook
 src/llm/             zero-shot prompt, answer parser, cache, rate limit handling, providers (Groq, Z.ai), run script
 src/evaluate/        metrics, confusion analysis, thresholds, results table
 api/                 FastAPI /classify with the abstain option
-tests/               84 tests, a small real-data file (tests/fixtures), no GPU or key needed
+tests/               86 tests, a small real-data file (tests/fixtures), no GPU or key needed
 docs/learn/          concept notes with walkthroughs, interview questions and glossaries
 results/             results.md, error analysis, predictions, tuning files, access log, Groq cache
 ```
@@ -135,7 +148,7 @@ results/             results.md, error analysis, predictions, tuning files, acce
 - **Sampled data.** The experiments use a random sample of 70,000 of the 554,344 unique single-component complaints, so that they run on a laptop. Results on all data could differ slightly.
 - **`OTHER` is not one thing.** It mixes NHTSA's own catch-all and every component outside the 14 named classes, so it is hard to predict by design.
 - **Complaints can name the component themselves.** Some texts include the recall's component name (for example "(Engine and Engine Cooling)"). I did not remove this, because it is part of the real data.
-- **Zero-shot on this task.** The prompt contains only the class names. It cannot know NHTSA's labelling habits, such as when staff use `ENGINE` and when `ENGINE AND ENGINE COOLING`.
+- **Zero-shot on this task.** The prompt contains only the class names, and a free-plan model was used (`glm-4.5-flash`, 5 of 1,000 answers were not a valid class). It cannot know NHTSA's labelling habits, such as when staff use `ENGINE` and when `ENGINE AND ENGINE COOLING`.
 - **Latency is measured on one laptop CPU**, so absolute values will differ elsewhere. The Groq latency will include network time.
 - **A discarded first run.** My first full run read the NHTSA files with the wrong text encoding (garbled quotes, for example "doesnât"). I found this while reading real examples, fixed it
   (the files are UTF-8), and ran everything again from scratch. No decision was based on the first run's results, and its test-access log is kept in `results/discarded_run1/` for transparency.

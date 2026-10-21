@@ -28,14 +28,17 @@ def system_result(system, scheme, truth, classes, restrict_to=None):
         return None
     result = metrics.compute_metrics(merged["label"], merged["pred"], classes)
     result.update(latency_ms=meta.get("latency_ms_per_item"), cost_per_1000=meta.get("cost_per_1000_usd"),
-                  latency_device=meta.get("latency_device"), invalid=meta.get("invalid_answers"))
+                  latency_device=meta.get("latency_device"), invalid=meta.get("invalid_answers"), api_model=meta.get("provider"))
     return result
 
 
 def format_row(name, result):
     if result is None:
         return f"| {name} | {NOT_RUN} | {NOT_RUN} | {NOT_RUN} | {NOT_RUN} | {NOT_RUN} |"
-    cost = "0 (local)" if not result["cost_per_1000"] else f"${result['cost_per_1000']:.3f}"
+    if result["cost_per_1000"]:
+        cost = f"${result['cost_per_1000']:.3f}"
+    else:
+        cost = "$0 (free plan)" if result.get("api_model") else "0 (local)"
     return (f"| {name} | {result['n']} | {result['accuracy']:.3f} | {result['macro_f1']:.3f} | "
             f"{result['latency_ms']:.1f} | {cost} |")
 

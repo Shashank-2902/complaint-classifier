@@ -81,3 +81,28 @@ The first two sound like power train or engine control problems. **The model is 
 Of the seven groups of mistakes above, the model is clearly wrong in two (the paint complaints in group 4 and the doors and tailgate that were predicted as `OTHER`),
 and weak on newer electronics in a third (group 1). In the other four, the model's answer is defensible or the label depends on how NHTSA grouped the problem. That is
 what label noise looks like in practice, and it is the reason why an accuracy of about 71 to 77 percent is agreement with the NHTSA label and not a measure of absolute correctness.
+
+## Zero-shot GLM-4.5-Flash on the fixed 1,000-item subset
+
+The language model only sees the 15 class names. On these 1,000 items (the same for every system) it scores accuracy 0.565 and macro-F1 0.592, against 0.735 and 0.678
+for TF-IDF on the time split. 5 of its 1,000 answers were not a valid class (`TIRE`, `TIRE PRESSURE MONITORING SYSTEM`, `STABILITY CONTROL`, and one answer that repeated the complaint text).
+It is correct where TF-IDF is wrong on 9.8 percent of the items and wrong where TF-IDF is right on 26.8 percent. Both are wrong on 16.7 percent.
+
+| Class (items) | F1 GLM | F1 TF-IDF |
+| --- | --- | --- |
+| ENGINE (191) | 0.45 | 0.82 |
+| OTHER (240) | 0.27 | 0.67 |
+| VISIBILITY/WIPER (11) | 0.13 | 0.50 |
+| FUEL/PROPULSION SYSTEM (38) | 0.56 | 0.73 |
+| AIR BAGS (36) | 0.90 | 0.78 |
+| FORWARD COLLISION AVOIDANCE (19) | 0.77 | 0.57 |
+
+The two systems fail in different places, which makes sense:
+
+1. **ENGINE predicted as ENGINE AND ENGINE COOLING (107 times, the most frequent mistake).** The model sees two names for the same thing and cannot know which one NHTSA staff use for which complaint.
+   It picks `ENGINE AND ENGINE COOLING` for 14.7 percent of all items, when only 3.2 percent are labelled so. A trained model learns this habit from the data, a prompt cannot. **A limit of zero-shot, not a bug of the model.**
+2. **OTHER is the weak spot.** The model answers `OTHER` for 7.9 percent of the items while 24 percent are labelled `OTHER`. The real `OTHER` contains components that are not in the list, such as tires, stability control or lighting.
+   The model pushes them into the nearest named class (`STRUCTURE` 60 times, `VISIBILITY/WIPER` 28, `FUEL/PROPULSION SYSTEM` 26) or invents a class that is not on the list (the 5 invalid answers).
+3. **Where it is better.** On `AIR BAGS` and `FORWARD COLLISION AVOIDANCE`, whose frequency changed a lot over time, the zero-shot model does not suffer from the drift, because it never learned the old class mix. With 36 and 19 items these two numbers are noisy.
+
+My reading, which is not a measurement: the language model understands the complaints well but does not know NHTSA's labelling rules, and this task is mostly about those rules. This is the case where a small trained model has a real advantage.

@@ -6,3 +6,5 @@
 {"system": "embedding_lr", "scheme": "time", "rows": 13840, "forced": false, "time": "2026-10-21T13:25:56+00:00"}
 {"system": "groq_zero_shot", "scheme": "random", "rows": 1000, "forced": true, "time": "2026-10-21T13:34:39+00:00"}
 {"system": "groq_zero_shot", "scheme": "time", "rows": 1000, "forced": true, "time": "2026-10-21T13:34:39+00:00"}
+{"system": "zai_glm_zero_shot", "scheme": "random", "rows": 1000, "forced": false, "time": "2026-10-21T14:49:07+00:00"}
+{"system": "zai_glm_zero_shot", "scheme": "time", "rows": 1000, "forced": false, "time": "2026-10-21T14:49:07+00:00"}

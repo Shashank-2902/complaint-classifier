@@ -15,7 +15,7 @@ PROVIDERS = {
         "system": "zai_glm_zero_shot",
         "key_variable": "ZAI_API_KEY",
         "model_variable": "ZAI_MODEL",
-        "default_model": "glm-4.7-flash",
+        "default_model": "glm-4.5-flash",
         "base_url": "https://api.z.ai/api/paas/v4/",
         # GLM models think before they answer by default. For a one-word answer that only costs time.
         "extra_body": {"thinking": {"type": "disabled"}},

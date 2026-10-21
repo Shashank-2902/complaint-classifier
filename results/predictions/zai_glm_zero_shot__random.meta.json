@@ -1,0 +1,15 @@
+{
+  "system": "zai_glm_zero_shot",
+  "provider": "zai",
+  "model": "glm-4.5-flash",
+  "temperature": 0,
+  "n_items": 1000,
+  "invalid_answers": 5,
+  "latency_ms_per_item": 719.0,
+  "latency_device": "zai cloud API, includes network time",
+  "prompt_tokens_total": 264498,
+  "completion_tokens_total": 5058,
+  "cost_per_1000_usd": 0.0,
+  "cost_note": "from token counts and the price list of glm-4.5-flash",
+  "scheme": "random"
+}

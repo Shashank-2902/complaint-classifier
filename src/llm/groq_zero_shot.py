@@ -9,9 +9,14 @@ PRICES = {
     "openai/gpt-oss-20b": (0.075, 0.30),
     "openai/gpt-oss-120b": (0.15, 0.60),
     # Z.ai price page, checked 2026-10-21. GLM-4.7-Flash is free, FlashX is the paid and faster version.
+    "glm-4.5-flash": (0.0, 0.0),
     "glm-4.7-flash": (0.0, 0.0),
     "glm-4.7-flashx": (0.07, 0.40),
 }
+
+
+# Rate limits (429), time-outs (408) and temporary server problems are worth waiting for.
+RETRY_STATUS = (408, 429, 500, 502, 503, 504)
 
 
 class DailyLimitReached(Exception):
@@ -48,10 +53,11 @@ def call_with_retry(chat, messages, sleep=time.sleep, tries=5):
         try:
             return chat.complete(messages)
         except Exception as error:  # noqa: BLE001  (the SDK has several error classes, we look at the status code)
-            if getattr(error, "status_code", None) != 429:
+            status = getattr(error, "status_code", None)
+            if status not in RETRY_STATUS:
                 raise
             text = str(error).lower()
-            if "per day" in text or "tokens per day" in text or "requests per day" in text:
+            if status == 429 and ("per day" in text or "tokens per day" in text or "requests per day" in text):
                 raise DailyLimitReached(str(error))
             if attempt == tries - 1:
                 raise

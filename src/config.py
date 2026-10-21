@@ -45,5 +45,5 @@ SYSTEM_NAMES = {
     "embedding_lr": "Sentence embeddings + logistic regression",
     "finetuned_encoder": "Fine-tuned small encoder",
     "groq_zero_shot": "Groq zero-shot (gpt-oss-20b)",
-    "zai_glm_zero_shot": "Z.ai zero-shot (GLM-4.7-Flash)",
+    "zai_glm_zero_shot": "Z.ai zero-shot (GLM-4.5-Flash)",
 }
