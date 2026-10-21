@@ -26,6 +26,7 @@ test on the newest 20 percent, 2024-07-29 to 2026-10-18).
 | Sentence embeddings + logistic regression | 0.756 | 0.736 | 0.705 | 0.662 | 23 to 25 ms | 0 (local) |
 | Fine-tuned small encoder (DistilBERT) | not run | not run | not run | not run | not run | not run |
 | Groq zero-shot (`openai/gpt-oss-20b`) | not run | not run | not run | not run | not run | not run |
+| Z.ai zero-shot (`glm-4.7-flash`, free) | not run | not run | not run | not run | not run | not run |
 
 Each test set has 13,840 complaints. Latency is the median time for one complaint on this laptop CPU (Intel, no GPU), including the embedding step.
 
@@ -47,8 +48,9 @@ Each test set has 13,840 complaints. Latency is the median time for one complain
 
 - **Fine-tuned encoder.** It needs a GPU, which this project's laptop does not have. The training script and a Colab/Kaggle notebook are ready
   ([src/finetune/](src/finetune/)). Start it yourself, see below. Until its predictions are added to `results/predictions/`, the row says "not run".
-- **Groq zero-shot.** Groq's free plan allows only 200,000 tokens per day for this model, about 440 answers per day. The run on 1,000 items is cached and resumable and takes a few days
-  (see below). Until it finishes, the row says "not run".
+- **Zero-shot language models.** Groq's free plan allows only 200,000 tokens per day for `gpt-oss-20b`, about 440 answers per day, so that run on 1,000 items takes a few days
+  (cached and resumable, see below). A second free option, Z.ai's `glm-4.7-flash` (open-weight, 1 request at a time, no daily cap listed in the console), can fill a second row
+  faster. Until a run finishes, its row says "not run".
 
 ## How the comparison is kept fair
 
@@ -69,7 +71,7 @@ Python 3.11. For the tests you need only `pip install -r requirements-dev.txt`.
 ```bash
 python -m venv .venv
 .venv/Scripts/pip install -r requirements-dev.txt            # Linux/macOS: .venv/bin/pip
-.venv/Scripts/python -m pytest                              # 75 tests, no GPU, no Groq key, no download needed
+.venv/Scripts/python -m pytest                              # 84 tests, no GPU, no Groq key, no download needed
 ```
 
 The full experiment (about 190 MB download, a few hours on a laptop):
@@ -88,10 +90,11 @@ python -m src.evaluate.report                                # writes results/re
 python -m src.evaluate.error_analysis --system tfidf_lr --scheme time
 ```
 
-**Groq zero-shot** needs a free key in `.env` (copy `.env.example`; create the key in the Groq console and check current model names and rate limits there):
+**Zero-shot language models** need a free key in `.env` (copy `.env.example`). Check the current model names and rate limits in each provider's console.
 
 ```bash
-python -m src.llm.run_groq --wait      # --wait: when the daily token limit is reached, wait and continue. Keep the computer awake.
+python -m src.llm.run_llm --provider groq --wait   # Groq gpt-oss-20b. --wait: at the daily token limit, wait and continue (keep the computer awake)
+python -m src.llm.run_llm --provider zai           # Z.ai glm-4.7-flash (free), one request at a time
 ```
 
 Every raw answer is cached in `results/llm_cache/`, so a stopped run resumes without new cost. The whole run is about 450,000 tokens, roughly 6 US cents at the listed price.
@@ -117,10 +120,10 @@ data/                data/README.md has the source, format, terms and every prep
 src/prepare/         download, load, clean, labels, dedupe, splits, the guarded test access
 src/baselines/       TF-IDF and embedding systems, tuning and final runs, model export for the API
 src/finetune/        training script and the Colab/Kaggle notebook
-src/llm/             Groq prompt, answer parser, cache, rate limit handling, run script
+src/llm/             zero-shot prompt, answer parser, cache, rate limit handling, providers (Groq, Z.ai), run script
 src/evaluate/        metrics, confusion analysis, thresholds, results table
 api/                 FastAPI /classify with the abstain option
-tests/               75 tests, a small real-data file (tests/fixtures), no GPU or key needed
+tests/               84 tests, a small real-data file (tests/fixtures), no GPU or key needed
 docs/learn/          concept notes with walkthroughs, interview questions and glossaries
 results/             results.md, error analysis, predictions, tuning files, access log, Groq cache
 ```

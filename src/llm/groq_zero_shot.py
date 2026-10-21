@@ -8,6 +8,9 @@ from src.llm.cache import make_key
 PRICES = {
     "openai/gpt-oss-20b": (0.075, 0.30),
     "openai/gpt-oss-120b": (0.15, 0.60),
+    # Z.ai price page, checked 2026-10-21. GLM-4.7-Flash is free, FlashX is the paid and faster version.
+    "glm-4.7-flash": (0.0, 0.0),
+    "glm-4.7-flashx": (0.07, 0.40),
 }
 
 

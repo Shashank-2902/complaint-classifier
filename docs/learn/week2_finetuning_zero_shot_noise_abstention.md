@@ -77,7 +77,7 @@ Note: confidence from a model is not always honest. A model can be confidently w
 - `prompt.py`: the prompt with the class list, and the parser that turns the answer into a class or `INVALID`.
 - `cache.py`: one JSON line per answer (key, id, raw answer, token counts, latency). The complaint text is not stored.
 - `groq_zero_shot.py`: sends the items, spaces the calls to stay under the rate limit, waits and retries on HTTP 429, stops cleanly on a daily limit and computes the cost from token counts.
-- `run_groq.py`: runs the fixed subset and writes predictions in the same format as every other system.
+- `providers.py`, `openai_compat.py`, `run_llm.py`: the provider table (Groq and Z.ai), a small client for OpenAI-style APIs, and the run script. It runs the fixed subset and writes predictions in the same format as every other system.
 
 **`src/evaluate/`**: `report.py` builds the results tables from the prediction files and writes "not run" for any missing system. `error_analysis.py` makes confusion matrices and the five most frequent mistakes with real texts. `subsets.py` creates the fixed 1,000-item subset.
 

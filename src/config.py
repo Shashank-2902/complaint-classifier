@@ -39,10 +39,11 @@ SPLIT_SCHEMES = ["random", "time"]
 # The Groq row runs on a fixed subset of each test set, because of rate limits.
 GROQ_SUBSET_SIZE = 1000
 
-SYSTEMS = ["tfidf_lr", "embedding_lr", "finetuned_encoder", "groq_zero_shot"]
+SYSTEMS = ["tfidf_lr", "embedding_lr", "finetuned_encoder", "groq_zero_shot", "zai_glm_zero_shot"]
 SYSTEM_NAMES = {
     "tfidf_lr": "TF-IDF + logistic regression",
     "embedding_lr": "Sentence embeddings + logistic regression",
     "finetuned_encoder": "Fine-tuned small encoder",
-    "groq_zero_shot": "Groq zero-shot",
+    "groq_zero_shot": "Groq zero-shot (gpt-oss-20b)",
+    "zai_glm_zero_shot": "Z.ai zero-shot (GLM-4.7-Flash)",
 }

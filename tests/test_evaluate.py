@@ -76,7 +76,7 @@ def test_the_table_never_invents_numbers(tmp_path, monkeypatch):
     truth = pd.DataFrame({"odi_no": ["1"], "label": ["A"]})
     table, results = report.results_table("time", truth, CLASSES)
     assert all(result is None for result in results.values())
-    assert table.count("not run") == 5 * 4
+    assert table.count("not run") == len(report.config.SYSTEMS) * 5
 
 
 def test_system_result_uses_only_items_that_were_predicted(tmp_path, monkeypatch):
