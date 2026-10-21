@@ -1,0 +1,11 @@
+{
+  "system": "tfidf_lr",
+  "scheme": "time",
+  "model": "TfidfVectorizer(1-2 grams, 100k features) + LogisticRegression",
+  "best_C": 30,
+  "latency_ms_per_item": 2.22,
+  "latency_device": "CPU (Intel64 Family 6 Model 140 Stepping 1, GenuineIntel)",
+  "cost_per_1000_usd": 0.0,
+  "cost_note": "runs locally, no API cost",
+  "n_items": 13840
+}

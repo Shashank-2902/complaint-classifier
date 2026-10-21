@@ -1,0 +1,9 @@
+pandas==3.0.6
+numpy==2.4.6
+scikit-learn==1.9.1
+scipy==1.17.1
+joblib==1.6.0
+matplotlib==3.11.2
+fastapi==0.156.1
+uvicorn[standard]==0.54.0
+groq==1.7.0

@@ -1,0 +1,6 @@
+{"system": "tfidf_lr", "scheme": "random", "rows": 13840, "forced": false, "time": "2026-10-20T19:38:45+00:00"}
+{"system": "tfidf_lr", "scheme": "time", "rows": 13840, "forced": false, "time": "2026-10-20T19:43:01+00:00"}
+{"system": "groq_zero_shot", "scheme": "time", "rows": 13840, "forced": false, "time": "2026-10-20T19:55:02+00:00"}
+{"system": "embedding_lr", "scheme": "random", "rows": 13840, "forced": false, "time": "2026-10-20T20:04:10+00:00"}
+{"system": "embedding_lr", "scheme": "time", "rows": 13840, "forced": false, "time": "2026-10-20T20:04:40+00:00"}
+{"system": "groq_zero_shot", "scheme": "time", "rows": 13840, "forced": true, "time": "2026-10-21T12:27:39+00:00"}

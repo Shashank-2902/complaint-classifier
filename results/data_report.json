@@ -1,0 +1,88 @@
+{
+  "raw_rows": 1114507,
+  "vehicle_rows": 1101224,
+  "too_short_or_empty_text": 10070,
+  "complaints_before_multi_filter": 778234,
+  "multi_component_complaints_dropped": 218327,
+  "single_component_complaints": 559907,
+  "exact_duplicates_removed": 5563,
+  "after_exact_dedupe": 554344,
+  "classes": [
+    "ENGINE",
+    "AIR BAGS",
+    "POWER TRAIN",
+    "ELECTRICAL SYSTEM",
+    "STEERING",
+    "SERVICE BRAKES",
+    "STRUCTURE",
+    "FUEL/PROPULSION SYSTEM",
+    "EXTERIOR LIGHTING",
+    "VISIBILITY/WIPER",
+    "SUSPENSION",
+    "ENGINE AND ENGINE COOLING",
+    "VEHICLE SPEED CONTROL",
+    "FORWARD COLLISION AVOIDANCE"
+  ],
+  "sampled": 70000,
+  "near_duplicates_removed": 805,
+  "final_complaints": 69195,
+  "label_counts": {
+    "OTHER": 12910,
+    "ENGINE": 9358,
+    "AIR BAGS": 8355,
+    "POWER TRAIN": 7520,
+    "ELECTRICAL SYSTEM": 6450,
+    "STEERING": 5840,
+    "SERVICE BRAKES": 3882,
+    "STRUCTURE": 3489,
+    "FUEL/PROPULSION SYSTEM": 3016,
+    "EXTERIOR LIGHTING": 2044,
+    "VISIBILITY/WIPER": 1813,
+    "SUSPENSION": 1683,
+    "ENGINE AND ENGINE COOLING": 1036,
+    "VEHICLE SPEED CONTROL": 974,
+    "FORWARD COLLISION AVOIDANCE": 825
+  },
+  "splits": {
+    "random": {
+      "train": {
+        "rows": 48435,
+        "first_date": "2015-01-01",
+        "last_date": "2026-10-18",
+        "fingerprint": "ed4f99d737e105b4"
+      },
+      "val": {
+        "rows": 6920,
+        "first_date": "2015-01-02",
+        "last_date": "2026-10-18",
+        "fingerprint": "8e1aa3884a9ff111"
+      },
+      "test": {
+        "rows": 13840,
+        "first_date": "2015-01-02",
+        "last_date": "2026-10-18",
+        "fingerprint": "61fdf66347a331be"
+      }
+    },
+    "time": {
+      "train": {
+        "rows": 48436,
+        "first_date": "2015-01-01",
+        "last_date": "2023-04-19",
+        "fingerprint": "b9f3550c176f6d69"
+      },
+      "val": {
+        "rows": 6919,
+        "first_date": "2023-04-19",
+        "last_date": "2024-07-29",
+        "fingerprint": "6ddc9383b4ca9996"
+      },
+      "test": {
+        "rows": 13840,
+        "first_date": "2024-07-29",
+        "last_date": "2026-10-18",
+        "fingerprint": "c6d84548fafe1d62"
+      }
+    }
+  }
+}

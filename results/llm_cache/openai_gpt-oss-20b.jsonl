@@ -1,0 +1,279 @@
+{"key": "35e6431fa6b393b69a155c98a55ccbfe2352edf563189cf7140a5ccc0f959f4c", "odi_no": "11606005", "raw": "STEERING", "prompt_tokens": 289, "completion_tokens": 169, "latency_s": 0.75}
+{"key": "177c103e52a457ee0bc73861dfa97ffb402ec2a857d7194304d0fe9f405347db", "odi_no": "11606087", "raw": "OTHER", "prompt_tokens": 284, "completion_tokens": 62, "latency_s": 0.453}
+{"key": "72749acd517539f28cb9999e1e45f40e609bb0ecf72422c3a6bca5933286010e", "odi_no": "11606254", "raw": "SUSPENSION", "prompt_tokens": 329, "completion_tokens": 291, "latency_s": 0.594}
+{"key": "117d9f94f5c108ed7cc597fb4cb4824b60dddc5ee1024fcbfa0d4d5d05ea1153", "odi_no": "11606258", "raw": "OTHER", "prompt_tokens": 223, "completion_tokens": 224, "latency_s": 0.641}
+{"key": "7cfa155a9de3799550048ac73210a4d0257a1b322c63239d29695dfedef5abd3", "odi_no": "11606386", "raw": "", "prompt_tokens": 258, "completion_tokens": 400, "latency_s": 0.735}
+{"key": "b4d85cbe08ab57a96e5e7ee2d8198849207c45393b4926a74d5b335c8d9a5617", "odi_no": "11606467", "raw": "SERVICE BRAKES", "prompt_tokens": 341, "completion_tokens": 110, "latency_s": 0.406}
+{"key": "7f0dfea9b5ed70096e0b57ebd4a9a6ebf8a08289aef9b5b8cd0f6a37e3ab7379", "odi_no": "11606545", "raw": "STEERING", "prompt_tokens": 354, "completion_tokens": 68, "latency_s": 0.344}
+{"key": "d307cba06cfecfb1cd9ac19c3ca61bd7ec7c47bea975f7589522cd32bbd02db7", "odi_no": "11606582", "raw": "STRUCTURE", "prompt_tokens": 321, "completion_tokens": 176, "latency_s": 0.594}
+{"key": "5d78c3ffd4c967e20d542d24c4ce05a33279be9b8ab0580dcc3abde8b5ca0e96", "odi_no": "11606933", "raw": "SERVICE BRAKES", "prompt_tokens": 454, "completion_tokens": 90, "latency_s": 0.39}
+{"key": "28ae175dbdb5871483dde6e59c442be9814c2578cd1757333358725f0bef237c", "odi_no": "11607280", "raw": "STEERING", "prompt_tokens": 393, "completion_tokens": 56, "latency_s": 0.282}
+{"key": "897b54ba6a28b160d1a493a77c7c2007ce66abaa12b0d2c02cbb34a74ee14feb", "odi_no": "11607323", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 295, "completion_tokens": 74, "latency_s": 0.453}
+{"key": "0ff8b9304019b00d33ef713bdf2926574724b05de038eb1c81c61091fee5210d", "odi_no": "11607580", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 272, "completion_tokens": 96, "latency_s": 0.469}
+{"key": "2e054304214fcdbc02e93dc5fee048b65c243bf8dc45acb7295594460ddbb5aa", "odi_no": "11607596", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 301, "completion_tokens": 119, "latency_s": 0.203}
+{"key": "f1cbe1f68d95b0d54e6bb9ce0344cd2e8465fb466491d45ff799e37ca5a0d8d6", "odi_no": "11607762", "raw": "STRUCTURE", "prompt_tokens": 257, "completion_tokens": 174, "latency_s": 0.657}
+{"key": "cbbab6859742d34872a492dd8b20c459eec6a6f064ee844d2e10ebc6d79ab0b7", "odi_no": "11608263", "raw": "EXTERIOR LIGHTING", "prompt_tokens": 252, "completion_tokens": 94, "latency_s": 0.453}
+{"key": "54b772e5dc9afa75ffd183290f1ea9889d9814fe824c658cdc75c11b81fbb3a1", "odi_no": "11608277", "raw": "OTHER", "prompt_tokens": 444, "completion_tokens": 161, "latency_s": 0.453}
+{"key": "540db3598a1077a13b2ee6187f7cbd1e55601c05b703f091365de701541b993f", "odi_no": "11608562", "raw": "OTHER", "prompt_tokens": 338, "completion_tokens": 96, "latency_s": 0.266}
+{"key": "1a1c57473a3c5daa7c8a4172dc4cfb6496475414d2c62cfcb0ee0d958552957f", "odi_no": "11608818", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 512, "completion_tokens": 84, "latency_s": 0.484}
+{"key": "b22f5f62c5756dffee0978a251b87b918423b6bf1c98c0253776caa7eeab4749", "odi_no": "11609005", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 460, "completion_tokens": 381, "latency_s": 0.672}
+{"key": "17d7369614896fd4170015da568a95ad2778d0e8271a9ac46a60b6b9b24fdfac", "odi_no": "11609043", "raw": "ENGINE", "prompt_tokens": 322, "completion_tokens": 85, "latency_s": 0.359}
+{"key": "1a392eb376947f57ae2dd18e89482f69a70cd6c6609bffa0a1859b7c197fc283", "odi_no": "11609105", "raw": "STEERING", "prompt_tokens": 226, "completion_tokens": 64, "latency_s": 0.172}
+{"key": "cfe1543ccc375ddec4d11e10be5a3aa4dc9140869acdd6cad26787bb0ea8f25c", "odi_no": "11609106", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 224, "completion_tokens": 93, "latency_s": 0.469}
+{"key": "4ce412c5b2ac61576d2bf799609796340d54a1994f18a8eaa47ae45c5e9b6dd9", "odi_no": "11609133", "raw": "OTHER", "prompt_tokens": 286, "completion_tokens": 351, "latency_s": 0.625}
+{"key": "6b61aa25e02eafefba8e39750ada045caf60fcf2c4081c46459405dd8d6187e0", "odi_no": "11609358", "raw": "", "prompt_tokens": 299, "completion_tokens": 400, "latency_s": 0.828}
+{"key": "36ef546041a3cace5ca1e8bae4fe9928bf61e3f15b1a5caede6d4866ab8a9618", "odi_no": "11609396", "raw": "SERVICE BRAKES", "prompt_tokens": 289, "completion_tokens": 271, "latency_s": 0.422}
+{"key": "5af494399f145b9189790c47bf390e51bb8cc97dcf37ce774631f11545bdb286", "odi_no": "11609843", "raw": "EXTERIOR LIGHTING", "prompt_tokens": 343, "completion_tokens": 57, "latency_s": 0.219}
+{"key": "0c17093f94f24e0e43a9c9f23eb4d2e3eccc3c580dcab8268e163e329e1af98c", "odi_no": "11610511", "raw": "FORWARD COLLISION AVOIDANCE", "prompt_tokens": 325, "completion_tokens": 85, "latency_s": 0.36}
+{"key": "cb2c523da4271d6bd323813917ed4222a3c7d59d410f61d75d26356bd6b8e098", "odi_no": "11610606", "raw": "SERVICE BRAKES", "prompt_tokens": 266, "completion_tokens": 89, "latency_s": 0.203}
+{"key": "e6db0e6d5124fb6c3a4ff3dd9eaa34bdd33725035704b34fd9a5a0097ba8cb00", "odi_no": "11610965", "raw": "POWER TRAIN", "prompt_tokens": 306, "completion_tokens": 75, "latency_s": 0.531}
+{"key": "cc630713d846112a12735105e9454f6789e947aee313bc97d91ea55f186f7538", "odi_no": "11610968", "raw": "STRUCTURE", "prompt_tokens": 298, "completion_tokens": 116, "latency_s": 0.438}
+{"key": "50b12d6a21236bc52cac63da7dc6aaac6bd0ceb173c2ded8b161607949b3307f", "odi_no": "11611016", "raw": "POWER TRAIN", "prompt_tokens": 230, "completion_tokens": 68, "latency_s": 0.312}
+{"key": "fb95d100b65acb2bdf5aa1d71c2c12c1b571433a2543a25a54a6adf03ad8d007", "odi_no": "11611095", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 460, "completion_tokens": 137, "latency_s": 0.546}
+{"key": "216d959728973199826bb6f35830dcee5b2a9e808b1f44307845463c2ff68393", "odi_no": "11611405", "raw": "EXTERIOR LIGHTING", "prompt_tokens": 226, "completion_tokens": 64, "latency_s": 0.344}
+{"key": "a244e90fc58808d5cd65468de39017fe37b7b48299131610c9be71ba7d7ce29d", "odi_no": "11611519", "raw": "FORWARD COLLISION AVOIDANCE", "prompt_tokens": 274, "completion_tokens": 256, "latency_s": 0.391}
+{"key": "9d183b62c4e03900dc818d431e86347163ce9995208ce49b5b3fc6c186d86c2e", "odi_no": "11611676", "raw": "STRUCTURE", "prompt_tokens": 337, "completion_tokens": 85, "latency_s": 0.39}
+{"key": "4cf39b8d78dfdbc934e90b4da46bd69e7f44acdd6c80bca135cee8dc67ba03a8", "odi_no": "11612107", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 404, "completion_tokens": 67, "latency_s": 0.297}
+{"key": "a2e2f61c87ed04cf26408dc8a9491d0dc58fdcb90860e2c10e054c178a0deb30", "odi_no": "11612396", "raw": "POWER TRAIN", "prompt_tokens": 387, "completion_tokens": 83, "latency_s": 0.375}
+{"key": "8a573d70c5bce71e96085c02c3665110ea9a227cdb379e0799e57e98944b6d68", "odi_no": "11612453", "raw": "POWER TRAIN", "prompt_tokens": 246, "completion_tokens": 89, "latency_s": 0.359}
+{"key": "916087292d50bf2048dd9e9fe465e16b32ebbb5ca580244156dfe14a4ad78a03", "odi_no": "11612536", "raw": "STRUCTURE", "prompt_tokens": 313, "completion_tokens": 259, "latency_s": 0.656}
+{"key": "96cd2ba69a4b1f9579ae8bdab79ef1373cc2a8bd15bb506f703d888a9aab4e26", "odi_no": "11612571", "raw": "POWER TRAIN", "prompt_tokens": 376, "completion_tokens": 46, "latency_s": 0.547}
+{"key": "59f3dcda10156f20ddf4c2c4f66e134b4a32144b156046c2765dc595cae866cb", "odi_no": "11612842", "raw": "FORWARD COLLISION AVOIDANCE", "prompt_tokens": 387, "completion_tokens": 188, "latency_s": 0.484}
+{"key": "b7caf7b6f624edc74a71f43be6796036384e57cd845bdc5c7476fd8c910f310b", "odi_no": "11612855", "raw": "SERVICE BRAKES", "prompt_tokens": 369, "completion_tokens": 95, "latency_s": 0.391}
+{"key": "c411082cd737fa7984dc14075bbeb1a5f4aa24a22f1518b13d7fc046f7a85bc9", "odi_no": "11612882", "raw": "POWER TRAIN", "prompt_tokens": 288, "completion_tokens": 145, "latency_s": 0.297}
+{"key": "c8132207be5c952400e8835dc588ca867c8cbbae381c4a1086eb29af0909e658", "odi_no": "11613459", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 268, "completion_tokens": 257, "latency_s": 0.359}
+{"key": "197f210d2f9c298a2fc8fba5c7bb6049ab120566a7a59a8f29c201f279dd4109", "odi_no": "11613556", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 311, "completion_tokens": 89, "latency_s": 0.469}
+{"key": "0e6cf766fc11073e762d76b4220e4990c359b28ad1f1fe6a2dcd2c7e186229b8", "odi_no": "11613728", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 362, "completion_tokens": 100, "latency_s": 0.5}
+{"key": "99edf8992ecbabd224c3df2f3a93270da8570b94a25771676886f743f8df13d3", "odi_no": "11613824", "raw": "EXTERIOR LIGHTING", "prompt_tokens": 309, "completion_tokens": 62, "latency_s": 0.297}
+{"key": "519b9e02413f31aa299a88f3d937a417dc20d2dc2ca14c3e3928a6282495f119", "odi_no": "11613853", "raw": "STRUCTURE", "prompt_tokens": 332, "completion_tokens": 235, "latency_s": 0.625}
+{"key": "f9825e35dba7d705c814dcdbab5b443f66952cc7320341163ec9336fdba82c05", "odi_no": "11613997", "raw": "STEERING", "prompt_tokens": 328, "completion_tokens": 71, "latency_s": 0.437}
+{"key": "a57cd8dd54ad8e0bfd7980ed186c444f18001e76afdba9fd082e4a3be02a1ada", "odi_no": "11614029", "raw": "SERVICE BRAKES", "prompt_tokens": 369, "completion_tokens": 60, "latency_s": 0.438}
+{"key": "2b5231782bcf264bb69733547b0808e92114cdb5f027883dc7b9d032d53f985a", "odi_no": "11614355", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 254, "completion_tokens": 169, "latency_s": 0.453}
+{"key": "7124a0f6b5970a9dbb7cea32312f402a3e6b40402924b2a4f753a7b40302501a", "odi_no": "11614445", "raw": "POWER TRAIN", "prompt_tokens": 352, "completion_tokens": 69, "latency_s": 1.328}
+{"key": "6836dae4409e4e9104a61b835ffd9a97cfd7e3074a95891739cc4da2da5f4323", "odi_no": "11615032", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 441, "completion_tokens": 91, "latency_s": 2.266}
+{"key": "0beefbf8376770298c457cab92e4ce58654880d455561b485e1c93e47bee30f9", "odi_no": "11615179", "raw": "SERVICE BRAKES", "prompt_tokens": 373, "completion_tokens": 251, "latency_s": 3.64}
+{"key": "4d2cfb2ef4ea5635e5a09a5d7116b736cf027bf3fb06b3ec94f9b89378d3d9be", "odi_no": "11615960", "raw": "ENGINE", "prompt_tokens": 282, "completion_tokens": 136, "latency_s": 4.563}
+{"key": "abd081a234d4b63711a043465a9c70aed890a917f5ef3162648698f07d399265", "odi_no": "11616025", "raw": "ENGINE", "prompt_tokens": 356, "completion_tokens": 55, "latency_s": 3.297}
+{"key": "7c0c6cb3483ad19d10c13f364635dbb9cef351d8b21b69b399b93132cd36d4b2", "odi_no": "11616308", "raw": "POWER TRAIN", "prompt_tokens": 320, "completion_tokens": 126, "latency_s": 2.422}
+{"key": "08f47d941859f753d6a52a2cd01378f2703ab00f63b55c878cebd8e0d2e20aa2", "odi_no": "11616334", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 387, "completion_tokens": 111, "latency_s": 4.828}
+{"key": "01594a1dfc1bdf1f075d289af28dc0625c0a9229fae81d583e5c0a1a16294d92", "odi_no": "11616662", "raw": "AIR BAGS", "prompt_tokens": 299, "completion_tokens": 58, "latency_s": 2.218}
+{"key": "6582073d230ebe0df4c22a78a108b828538e9d1ac0a1f0ec016ca255deb02f3e", "odi_no": "11616952", "raw": "SERVICE BRAKES", "prompt_tokens": 304, "completion_tokens": 128, "latency_s": 2.469}
+{"key": "811d294d457f82532db72cc8565a41e3a71ce81e3676454be6e4e3c2e944bd3f", "odi_no": "11618100", "raw": "STEERING", "prompt_tokens": 335, "completion_tokens": 46, "latency_s": 3.375}
+{"key": "c5b1d3354171013a5b9a885143da758f31d8ca8f242112db7266f1a8880c85b2", "odi_no": "11618452", "raw": "OTHER", "prompt_tokens": 273, "completion_tokens": 271, "latency_s": 2.578}
+{"key": "9125f303889b909714c1926a7be53645eae0056c814b53d3d52004cfc6068e0d", "odi_no": "11618488", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 357, "completion_tokens": 221, "latency_s": 5.547}
+{"key": "afe8e44509f8e2af1f0216ee31841b1d9b5dc7ee0d86730d49a89da22179d1e6", "odi_no": "11618492", "raw": "STRUCTURE", "prompt_tokens": 316, "completion_tokens": 65, "latency_s": 3.344}
+{"key": "5b86aa2d52ec4ba1c5737d80d4b14bf13106a21862caa010eb6a87e9eaf27b7e", "odi_no": "11618855", "raw": "OTHER", "prompt_tokens": 254, "completion_tokens": 172, "latency_s": 2.453}
+{"key": "26379bcd12c317ee02e29eec867f74b727609b814420a7bedde7295834f83b97", "odi_no": "11618890", "raw": "POWER TRAIN", "prompt_tokens": 313, "completion_tokens": 76, "latency_s": 3.266}
+{"key": "7e46b83b386695f2c420abf16a938630f197a3ee790f1067d852dd3ccf36e5bf", "odi_no": "11618974", "raw": "VISIBILITY/WIPER", "prompt_tokens": 535, "completion_tokens": 274, "latency_s": 5.562}
+{"key": "f239a71d167cf4e9526d56345bfc61867996bfeecf253cbf507a32ee1f1b8b45", "odi_no": "11619082", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 288, "completion_tokens": 104, "latency_s": 3.234}
+{"key": "6da35aeb160ebc8f8cec627fba94e835a459bbd48b1ec27f0325577394992423", "odi_no": "11619147", "raw": "STEERING", "prompt_tokens": 521, "completion_tokens": 54, "latency_s": 5.391}
+{"key": "0049f0c10da07f773c021a479d53fee2a86c34541c33e7d537f9a5131bb0579c", "odi_no": "11619367", "raw": "STEERING", "prompt_tokens": 327, "completion_tokens": 62, "latency_s": 2.203}
+{"key": "ccb78430b63dff2f1997c396099b8ca504528ac905856386b40c85af758a87b5", "odi_no": "11619397", "raw": "POWER TRAIN", "prompt_tokens": 298, "completion_tokens": 261, "latency_s": 2.563}
+{"key": "09ef5c67c47d71ba535009e5be2a00b2eeda70828a3b0fc5f4e8d9263e3f5bca", "odi_no": "11619688", "raw": "ENGINE", "prompt_tokens": 526, "completion_tokens": 46, "latency_s": 6.703}
+{"key": "e3b7ce4429758bc4a71dac0bf0262d9de1111b960b471bbb809d7ea58b882a1a", "odi_no": "11619739", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 249, "completion_tokens": 135, "latency_s": 1.281}
+{"key": "1ead81a9f270c588c32d25ffbb55543f510f7ae5802d0f717b8a89d462aaa5f4", "odi_no": "11619750", "raw": "OTHER", "prompt_tokens": 247, "completion_tokens": 216, "latency_s": 2.625}
+{"key": "934fb24a4c93127e7cd924122c41501f0d9577533a682a26968c56551e7720df", "odi_no": "11619787", "raw": "", "prompt_tokens": 240, "completion_tokens": 400, "latency_s": 2.719}
+{"key": "11b051988045a61b9aab2d0a84e17f88feee05cef9654fe09aa6795681ba25f4", "odi_no": "11619841", "raw": "POWER TRAIN", "prompt_tokens": 345, "completion_tokens": 139, "latency_s": 5.484}
+{"key": "b8edb98c1096c699d1d54490b21e215fedc98917b3d2088d86e1d1dbf689451f", "odi_no": "11619905", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 301, "completion_tokens": 64, "latency_s": 3.266}
+{"key": "e03ff6f2233ce1ad57f54488009cd275c5d3336ab2a716f5e2ed9261c56857b0", "odi_no": "11620195", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 277, "completion_tokens": 98, "latency_s": 2.422}
+{"key": "44d07ab187f6b3d4f2158d79908a2e6426880149bc47b321ba6f36d218684fd6", "odi_no": "11620243", "raw": "ENGINE", "prompt_tokens": 379, "completion_tokens": 41, "latency_s": 3.172}
+{"key": "bc22496c0c9bf989a39c64df242631df18e8d4824e2b5f9ac776eaab47c71a29", "odi_no": "11620306", "raw": "OTHER", "prompt_tokens": 290, "completion_tokens": 202, "latency_s": 3.343}
+{"key": "617d1b4b78c0cb1f1b2b595885ca0b41a0d6a360027195b290bf8a59afcfbe47", "odi_no": "11620333", "raw": "POWER TRAIN", "prompt_tokens": 340, "completion_tokens": 109, "latency_s": 4.297}
+{"key": "3d921427b9c7c1963ed09a41b719b12cc2c3713ffcf96f3873236a2fc0727db4", "odi_no": "11620376", "raw": "AIR BAGS", "prompt_tokens": 285, "completion_tokens": 57, "latency_s": 2.375}
+{"key": "e6034ac56454df67b12197e2e51287b1f47dde92eaae3b6b1cec59e4d388da2e", "odi_no": "11620445", "raw": "STEERING", "prompt_tokens": 427, "completion_tokens": 57, "latency_s": 3.562}
+{"key": "b232a7d517e8b1cd1688b0f1256699e7a17c98d14b2f18f886dedb92cf97f304", "odi_no": "11620459", "raw": "ENGINE", "prompt_tokens": 362, "completion_tokens": 56, "latency_s": 3.438}
+{"key": "06c6a8e4eb52d9b8a9d87e1dee34b4b5c1c11a71186947b8c69a31db8e1e6bf0", "odi_no": "11620473", "raw": "ENGINE", "prompt_tokens": 357, "completion_tokens": 68, "latency_s": 2.391}
+{"key": "c03751d6a7a4f288bc093fa967dd62d4f1a169c6be87d1465adf400df48c51e6", "odi_no": "11620813", "raw": "ENGINE", "prompt_tokens": 225, "completion_tokens": 51, "latency_s": 3.375}
+{"key": "6f2639dac52d6876a6706babf1c6639a0582dea53fc9d40183de20c8fbf2f40d", "odi_no": "11620822", "raw": "ENGINE", "prompt_tokens": 316, "completion_tokens": 125, "latency_s": 2.453}
+{"key": "9d9899821ca0311619d12da3ce6a9cf1aec1930fc3462ac2251b2733920248e0", "odi_no": "11620969", "raw": "OTHER", "prompt_tokens": 294, "completion_tokens": 147, "latency_s": 3.437}
+{"key": "8ce3f2708a5d96451650051aeded277667457e75f5051eaf179db392205b0cb2", "odi_no": "11621054", "raw": "STEERING", "prompt_tokens": 425, "completion_tokens": 73, "latency_s": 3.422}
+{"key": "9cc7c64aa2306850de40a2b8ba33d623e3d1e70917d40ff7cc5556d67d839706", "odi_no": "11621135", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 302, "completion_tokens": 65, "latency_s": 3.359}
+{"key": "d4746070abdf33e52487a4846da7db4a9a3d25f8701c9c1096bc779b80cd42ba", "odi_no": "11621246", "raw": "", "prompt_tokens": 244, "completion_tokens": 400, "latency_s": 2.688}
+{"key": "8d9f880cd4e9f3974d61de19783a7e7b6c927d218569bb168229aeb9a5fe915f", "odi_no": "11621575", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 335, "completion_tokens": 327, "latency_s": 5.641}
+{"key": "4979c2db4765acd2eed335efc0817c9f70cfa52461072cae39ba9cc186c43bb3", "odi_no": "11621697", "raw": "ENGINE", "prompt_tokens": 447, "completion_tokens": 97, "latency_s": 5.39}
+{"key": "9c02592df7be2c95f24d6aa1b77364637a86750694ed7b9c0da11f589d12d1b9", "odi_no": "11622112", "raw": "STRUCTURE", "prompt_tokens": 240, "completion_tokens": 87, "latency_s": 2.453}
+{"key": "0b27100bcc60ece8434c882856ea9c87e0780f4d7d94a0f74147e08b6135cbab", "odi_no": "11622349", "raw": "EXTERIOR LIGHTING", "prompt_tokens": 320, "completion_tokens": 151, "latency_s": 3.313}
+{"key": "3191b22b45d01853d10412a11f3863ffcfa9e8d5a9584300bb0a6a503b8d245f", "odi_no": "11622356", "raw": "POWER TRAIN", "prompt_tokens": 304, "completion_tokens": 85, "latency_s": 3.406}
+{"key": "8ce29140d8b6eee05928da72e3199ced82b4cd682befb99bb407ddb6038d31f3", "odi_no": "11622481", "raw": "POWER TRAIN", "prompt_tokens": 244, "completion_tokens": 101, "latency_s": 2.531}
+{"key": "0bae1cc55fffa4e69008859aaa80364ea0232c6879ddb6fe3efb540d279d8ada", "odi_no": "11622511", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 341, "completion_tokens": 110, "latency_s": 3.344}
+{"key": "45e62bd92a3d3e827c79affddc59222b1ee1643119352571fa5cb2f3d089e2b1", "odi_no": "11622859", "raw": "ENGINE", "prompt_tokens": 514, "completion_tokens": 54, "latency_s": 4.375}
+{"key": "e7010570d253ee09183367921300ed15543cf836b65b168938c7313aab4162c2", "odi_no": "11622971", "raw": "ENGINE", "prompt_tokens": 372, "completion_tokens": 101, "latency_s": 3.25}
+{"key": "6a6def240442de599e73c7e7d117881a7f76bb46c8d3c00fc8f44dd1ace0dab4", "odi_no": "11623034", "raw": "ENGINE", "prompt_tokens": 282, "completion_tokens": 65, "latency_s": 2.328}
+{"key": "e986671a5db2bc4a4465d48d6297e53a05f3206ede1a6bcbbf5c1cc2c408c034", "odi_no": "11623059", "raw": "ENGINE", "prompt_tokens": 404, "completion_tokens": 208, "latency_s": 4.531}
+{"key": "5a219bcfeb7cc4bb3e3e632d9ec08d5c163d60ffa3875a6cf6cee0caeaab0dbd", "odi_no": "11623202", "raw": "SERVICE BRAKES", "prompt_tokens": 327, "completion_tokens": 108, "latency_s": 3.281}
+{"key": "dab9f98606e70e70aa015f07144d8d5d0d6ae53de322ecea171c405e709ca61d", "odi_no": "11623269", "raw": "OTHER", "prompt_tokens": 410, "completion_tokens": 199, "latency_s": 4.484}
+{"key": "3c51551798eae727be50017b092be164c81387f5b11fd1f995243807f1de74dd", "odi_no": "11623700", "raw": "POWER TRAIN", "prompt_tokens": 294, "completion_tokens": 87, "latency_s": 3.235}
+{"key": "d3ddf275db5c0977283de8cecc2f8f294cf6dc122f72e9e97889726f6c95227a", "odi_no": "11623966", "raw": "VISIBILITY/WIPER", "prompt_tokens": 241, "completion_tokens": 155, "latency_s": 2.562}
+{"key": "88afceacc5407e4e3388068cbd8a722e9ad6e76166dba014fb264de39a4a0d88", "odi_no": "11623973", "raw": "STRUCTURE", "prompt_tokens": 339, "completion_tokens": 187, "latency_s": 3.531}
+{"key": "24fe2095ba9ec83c758231e8cadba613d8d1651b5bffa09a15ccc31599c55160", "odi_no": "11623974", "raw": "AIR BAGS", "prompt_tokens": 459, "completion_tokens": 50, "latency_s": 5.344}
+{"key": "167714d2d497c2fba3a11bcef05317cce220de1e6116310daaac9539699abddb", "odi_no": "11624169", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 285, "completion_tokens": 154, "latency_s": 2.563}
+{"key": "739eb40f8d61f9dc6960ed25734bd8d74ee2ec305f23d4d8eb51012d6b8d27ba", "odi_no": "11624317", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 302, "completion_tokens": 93, "latency_s": 3.421}
+{"key": "7c670ea632f3e388a86aa840ba8e5caae7ad313a135a225856528af290e845e6", "odi_no": "11624324", "raw": "ENGINE", "prompt_tokens": 255, "completion_tokens": 43, "latency_s": 2.391}
+{"key": "45909ffd60592e1f3ffe4abfe39ffc038cc09c7a81b8d5349ac3d2a056b94f9b", "odi_no": "11624408", "raw": "STRUCTURE", "prompt_tokens": 243, "completion_tokens": 137, "latency_s": 1.468}
+{"key": "ffa776493b30a49f7d894945bfa7f4943e8df3e1ea4ce2064c1b40b6a8351f05", "odi_no": "11624418", "raw": "STEERING", "prompt_tokens": 525, "completion_tokens": 73, "latency_s": 4.391}
+{"key": "40b830aca578f2b1f82ac2f03f1bae63adb7db6920faee4898520f53ce2cb806", "odi_no": "11624590", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 347, "completion_tokens": 91, "latency_s": 3.406}
+{"key": "d6f5daf629775cb25bc29da64a15c1ec2261da111fe2fb3ce8400f8e65fea6d8", "odi_no": "11624635", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 483, "completion_tokens": 86, "latency_s": 4.359}
+{"key": "17f5b09d027c68434df5a50c17811338557449bafe83f09e48e0c4f4db72de3f", "odi_no": "11624716", "raw": "AIR BAGS", "prompt_tokens": 268, "completion_tokens": 44, "latency_s": 2.781}
+{"key": "036d266d12d26ce5691812fbd99f811290fcde63bb32d83f125d8d907f8188fc", "odi_no": "11624793", "raw": "ENGINE", "prompt_tokens": 241, "completion_tokens": 151, "latency_s": 1.5}
+{"key": "44f4b5c004b6dfbc72d19a8ce97891fb598d27203df4522470471f383d102c29", "odi_no": "11624803", "raw": "SERVICE BRAKES", "prompt_tokens": 306, "completion_tokens": 333, "latency_s": 2.515}
+{"key": "8c3a3303d0bda334ef32844f61118412e066c99ddcae52b3eec3ced1c96ec7ab", "odi_no": "11624919", "raw": "POWER TRAIN", "prompt_tokens": 341, "completion_tokens": 67, "latency_s": 5.422}
+{"key": "79e93f5ae767528fae28bad6a6aee5ad959c033b9775b858674013f9559e7479", "odi_no": "11625132", "raw": "STRUCTURE", "prompt_tokens": 310, "completion_tokens": 47, "latency_s": 3.235}
+{"key": "70d42841ff30eed6b05bf1da2e18d9c68bd733d3c6eb0339580ca10990ad473e", "odi_no": "11625343", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 225, "completion_tokens": 191, "latency_s": 1.437}
+{"key": "5f7d166e24b320f4bce35f001991134e8484ba0cc4f51c9db551ba8598338f43", "odi_no": "11625435", "raw": "POWER TRAIN", "prompt_tokens": 309, "completion_tokens": 195, "latency_s": 3.437}
+{"key": "78221e553c803d3e0cc661c076b2b81b6ede5437e4e4a9751e2c584e95dee6d3", "odi_no": "11625517", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 242, "completion_tokens": 127, "latency_s": 2.531}
+{"key": "7fa9147faa63dedc11a203921c5e0b9cc58d381f7f50985bd5ac4715bcbf2181", "odi_no": "11625611", "raw": "AIR BAGS", "prompt_tokens": 312, "completion_tokens": 56, "latency_s": 3.375}
+{"key": "5dd203b837dad0ed70ab3b573161335c555eac1708ce397125c2eaa47bd53e89", "odi_no": "11625877", "raw": "POWER TRAIN", "prompt_tokens": 393, "completion_tokens": 104, "latency_s": 3.422}
+{"key": "87e2338b9735fea5470974e4ba1668c6eb803fccec4dfad6d9f5a08f6349fa53", "odi_no": "11626221", "raw": "POWER TRAIN", "prompt_tokens": 309, "completion_tokens": 61, "latency_s": 3.484}
+{"key": "bdd044fe4691ab8fb050aa7146f4611d9b112588011b2b9537af08113a611077", "odi_no": "11626320", "raw": "POWER TRAIN", "prompt_tokens": 276, "completion_tokens": 62, "latency_s": 2.391}
+{"key": "a41fe940280c188448d6080f5cc635df5ce1ea1cc4c253d38d80c1c589169a6e", "odi_no": "11626374", "raw": "ENGINE", "prompt_tokens": 297, "completion_tokens": 50, "latency_s": 3.563}
+{"key": "86d41a8732faa2b7dc678ac3b7575ea8c188e8491ac7cf72ab5258430ecda0f2", "odi_no": "11626544", "raw": "STEERING", "prompt_tokens": 399, "completion_tokens": 48, "latency_s": 2.375}
+{"key": "d255348c92f599893696778ca28c3b2932d96a1f8a728335e7ce1c3a25190f1e", "odi_no": "11626683", "raw": "ENGINE", "prompt_tokens": 296, "completion_tokens": 158, "latency_s": 3.484}
+{"key": "27e9d679a2ad872fd617c697af0374b0d22f5803e8f22cd093a06a82df4c5c46", "odi_no": "11626690", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 315, "completion_tokens": 197, "latency_s": 2.547}
+{"key": "4156a506dc8c9a6a6a3cba339d7231b30e52ccd5e5a860a9fb0ab65a15ee93a5", "odi_no": "11626693", "raw": "ENGINE", "prompt_tokens": 290, "completion_tokens": 51, "latency_s": 3.359}
+{"key": "c6e78e2da518cc57859d07e5a7ccc2a6fe1f46b7c78fcf6eb3392b034798444c", "odi_no": "11626776", "raw": "STEERING", "prompt_tokens": 314, "completion_tokens": 44, "latency_s": 3.344}
+{"key": "8dbdbf94d9a89b4ae03d89e4a196902a9aa637a3628a8a84b506b4044bf243e8", "odi_no": "11626809", "raw": "POWER TRAIN", "prompt_tokens": 340, "completion_tokens": 113, "latency_s": 2.547}
+{"key": "93c12d2c197059cfa46c799613f340512be94714f2c47fae41766959b8cfff49", "odi_no": "11626962", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 566, "completion_tokens": 96, "latency_s": 5.594}
+{"key": "06f6ab0973b36362b955e36aa905d3c6f17a779d5c6900f6a34ae1febbf0f156", "odi_no": "11627221", "raw": "ENGINE", "prompt_tokens": 324, "completion_tokens": 153, "latency_s": 2.625}
+{"key": "b35d3589dd7c677ed1ce2acde0c81005776dc753378635d27b24e3f4fb9415c7", "odi_no": "11627480", "raw": "FORWARD COLLISION AVOIDANCE", "prompt_tokens": 246, "completion_tokens": 269, "latency_s": 2.688}
+{"key": "b6893103ea905b55cb672cdf1ec13aa44025fb36dfc6debc45f9ea19d4fed026", "odi_no": "11627560", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 346, "completion_tokens": 96, "latency_s": 4.468}
+{"key": "c7deadcfa340a5524a2fa38c2baffd124a5442c854fff60fa1b6620337b92faa", "odi_no": "11627716", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 325, "completion_tokens": 103, "latency_s": 3.5}
+{"key": "1e50aa0c2ca83ddee1d68b87318949856c08d76c376ae92957e80e30d04bb078", "odi_no": "11627848", "raw": "STRUCTURE", "prompt_tokens": 248, "completion_tokens": 116, "latency_s": 3.562}
+{"key": "7ef7fac3b5171e1867d9e809a685d24026dfbe6e1fe63b47754a57950b5d02dc", "odi_no": "11627968", "raw": "POWER TRAIN", "prompt_tokens": 280, "completion_tokens": 127, "latency_s": 2.297}
+{"key": "452f9f6b95f1d0e7b7e63cf2ea69b31af1bc60b8e11ccf5b09fead35738e2526", "odi_no": "11627983", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 318, "completion_tokens": 75, "latency_s": 3.218}
+{"key": "1e0e6e5c4397b3efa2aa703e22ca02ab74746254fe2efaa640c2343521cb2128", "odi_no": "11628429", "raw": "ENGINE", "prompt_tokens": 542, "completion_tokens": 57, "latency_s": 5.266}
+{"key": "6335599d925d9803f970f4cbe29822571146e360c077ca69edbbb79041282138", "odi_no": "11628482", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 323, "completion_tokens": 78, "latency_s": 1.578}
+{"key": "d6dc13bbcaa29818d37e8f4d2694bc320fc9f4e8ea783bc99789e0f0859f6784", "odi_no": "11628518", "raw": "", "prompt_tokens": 323, "completion_tokens": 400, "latency_s": 2.75}
+{"key": "f28f28b1bd323e6acff3da325c1cb23ed5e2970bd35dddb21e9f320a6c31828c", "odi_no": "11628546", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 305, "completion_tokens": 130, "latency_s": 5.609}
+{"key": "9a80e3c36592ef378ad1d269c095cbad404d8b6b8d58d3775354315f476e6a11", "odi_no": "11628610", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 419, "completion_tokens": 169, "latency_s": 3.609}
+{"key": "894ea8ccd42b97ee56a00af739b922999cf8826e919d48e292ebfa69e7db4a43", "odi_no": "11628680", "raw": "SERVICE BRAKES", "prompt_tokens": 258, "completion_tokens": 156, "latency_s": 3.578}
+{"key": "24acff90b4c5c2e6902f1195f6a20a4da79a59bb4158cc522a225431ce7095aa", "odi_no": "11628705", "raw": "OTHER", "prompt_tokens": 282, "completion_tokens": 217, "latency_s": 3.594}
+{"key": "7603f56fad2154facd2a2b94d1fe91bbe309ee1547a67650c16643232d1438c3", "odi_no": "11628895", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 304, "completion_tokens": 83, "latency_s": 4.25}
+{"key": "271110760e1a2e101f5e39f957bcd7c9c19707efab3f95817ca93b6020799f8f", "odi_no": "11628954", "raw": "ENGINE", "prompt_tokens": 240, "completion_tokens": 87, "latency_s": 1.578}
+{"key": "183a63e2ec6c93e5e0caf560a25803cc793eafe3edb973b352706195880399a4", "odi_no": "11629178", "raw": "SERVICE BRAKES", "prompt_tokens": 222, "completion_tokens": 124, "latency_s": 0.391}
+{"key": "95ed1e2b8439e60a7b5be5cdf511bfa3fb11652a335c301a7f4c5c4be3374a13", "odi_no": "11629378", "raw": "OTHER", "prompt_tokens": 392, "completion_tokens": 283, "latency_s": 3.578}
+{"key": "7047257de59422bf5186407077e24e86357876e4992206896f89a36369c50cb1", "odi_no": "11629598", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 238, "completion_tokens": 207, "latency_s": 3.515}
+{"key": "2cdb810832fb331cbfa19df585ff1ebc24c5a39fbaf2c497df03735cfa290c59", "odi_no": "11629686", "raw": "STEERING", "prompt_tokens": 555, "completion_tokens": 61, "latency_s": 5.328}
+{"key": "8ec1403973d71983b898987f1aeb5e2ba4839424a7a7b9bea7f86d8d796c95bd", "odi_no": "11630156", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 345, "completion_tokens": 182, "latency_s": 3.515}
+{"key": "88cc09b807a7f8d9e45c47a5d13fa1298caa14aa3641bdc5dfb71ddc8a865bf3", "odi_no": "11630422", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 272, "completion_tokens": 147, "latency_s": 3.579}
+{"key": "9fbf83298cc8d18edb3d3accb01d797b499a342a49e966573a13d37b8edff50a", "odi_no": "11630484", "raw": "SERVICE BRAKES", "prompt_tokens": 253, "completion_tokens": 51, "latency_s": 6.063}
+{"key": "8f8084995f6a9dace4588f3adb2808b47ee864a155a581a8d6315dd39bfcda0e", "odi_no": "11630519", "raw": "", "prompt_tokens": 223, "completion_tokens": 400, "latency_s": 0.656}
+{"key": "2df21eb3f4a143d20ac095a92b1c2802dd46b8f1ba391c3c877fe03ea286ca36", "odi_no": "11630714", "raw": "ENGINE", "prompt_tokens": 218, "completion_tokens": 96, "latency_s": 1.547}
+{"key": "4ff3315afead846980346a498ffc597a16b5573c47440bf7fd6264ebbd4caf7d", "odi_no": "11630743", "raw": "STRUCTURE", "prompt_tokens": 241, "completion_tokens": 182, "latency_s": 1.344}
+{"key": "eb171c2150a0c90721908c5e0657c406a8a3c8d0af3b71fcc6069b39eda4fe46", "odi_no": "11630761", "raw": "", "prompt_tokens": 267, "completion_tokens": 400, "latency_s": 2.75}
+{"key": "4e6f1b9cc252fc6a90f128db4c5bd2497f324d63b37e283958133ea7733f6bac", "odi_no": "11630895", "raw": "ENGINE", "prompt_tokens": 335, "completion_tokens": 88, "latency_s": 5.609}
+{"key": "37b0234e1acb2a73515c49bbe4b133e71ef90fb045c3656298544a32f2df37fc", "odi_no": "11630971", "raw": "ENGINE", "prompt_tokens": 449, "completion_tokens": 94, "latency_s": 3.422}
+{"key": "8449304e33f58ee053ff9f04ad50d09dad8735e7df82d5b37777020d1f873cea", "odi_no": "11631484", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 341, "completion_tokens": 107, "latency_s": 2.594}
+{"key": "b6bb70ba17295d0d048a6e04c849530390e5941f71c8a6db01302dc7921abcaa", "odi_no": "11632044", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 540, "completion_tokens": 111, "latency_s": 3.563}
+{"key": "b7792058e9553abc4feee80f697200b6df0fd83460c610b73a2dfe8967e3b037", "odi_no": "11632392", "raw": "ENGINE", "prompt_tokens": 341, "completion_tokens": 163, "latency_s": 3.609}
+{"key": "e8e9f0a5528f9fd3377cf8227f722c59aff062194b53513ef3290044595dfb0d", "odi_no": "11632495", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 227, "completion_tokens": 132, "latency_s": 2.484}
+{"key": "455b581e0b9af8d39f78df841c535910416cca2709c2c496226462c4547b8a77", "odi_no": "11632585", "raw": "ENGINE", "prompt_tokens": 248, "completion_tokens": 75, "latency_s": 3.516}
+{"key": "b4dbbf5a58d470cc9becb4492dadd40ff74a961a72a54ab5a0c99b4a41e95123", "odi_no": "11632620", "raw": "AIR BAGS", "prompt_tokens": 290, "completion_tokens": 63, "latency_s": 2.438}
+{"key": "80fb1c5f9765db60dc7b1996011154d904efd74aad3f7d98942117a8486d5888", "odi_no": "11632717", "raw": "ENGINE", "prompt_tokens": 302, "completion_tokens": 83, "latency_s": 2.218}
+{"key": "ed0ab632e56c5ef899c140cf64f08a4785f37fdc8c9f60a1590fbad5213ff973", "odi_no": "11632829", "raw": "STEERING", "prompt_tokens": 238, "completion_tokens": 65, "latency_s": 2.312}
+{"key": "57323fb06d9c107334ed281099eeec4cbff0769584488c4e19dd308b8d5566ed", "odi_no": "11632967", "raw": "SERVICE BRAKES", "prompt_tokens": 245, "completion_tokens": 104, "latency_s": 2.25}
+{"key": "e070c3b2ec1d6aa25925b025fe0426164393ce5e83f7a0f5dd548f14da629b7e", "odi_no": "11633212", "raw": "STEERING", "prompt_tokens": 306, "completion_tokens": 98, "latency_s": 3.438}
+{"key": "ee9c90e9ea63c6328c986b60c75b2eb06052ba62bcb93705029d9edb061797ba", "odi_no": "11633432", "raw": "", "prompt_tokens": 266, "completion_tokens": 400, "latency_s": 2.75}
+{"key": "a2abe30d18cac7e363dd95fbe8219c1f12c6836158b3e13af8eb8359ca712b84", "odi_no": "11633465", "raw": "ENGINE", "prompt_tokens": 511, "completion_tokens": 73, "latency_s": 6.422}
+{"key": "d8def60cf5d9483b66bd8fd05eb574f55ce462e65d72073c8fc38079b4c726cc", "odi_no": "11633750", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 381, "completion_tokens": 77, "latency_s": 3.422}
+{"key": "c0dc154ab797c111877b3d29ee0b5e6c0e5139806968731d2ae00214a6e4c33a", "odi_no": "11633893", "raw": "POWER TRAIN", "prompt_tokens": 362, "completion_tokens": 67, "latency_s": 3.296}
+{"key": "252560383331162d79c5f4432f7983e782e21a9a06add7637aa64f42e63fbbd0", "odi_no": "11633952", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 358, "completion_tokens": 69, "latency_s": 3.813}
+{"key": "db3275edc14b22470e20ae26c8278f8f326f86c9ee510ae1f6bc94424edfa922", "odi_no": "11634038", "raw": "STRUCTURE", "prompt_tokens": 271, "completion_tokens": 183, "latency_s": 2.594}
+{"key": "f416e6f3102ac26b6f95e54b93b487501573cdbbc4a9eedaa5f23443e7f06f62", "odi_no": "11634118", "raw": "VISIBILITY/WIPER", "prompt_tokens": 270, "completion_tokens": 183, "latency_s": 2.453}
+{"key": "a9ed0953a73f90beddefa543c20cc142b97e464b217d97cf8413e466f5a10b69", "odi_no": "11634541", "raw": "AIR BAGS", "prompt_tokens": 338, "completion_tokens": 88, "latency_s": 4.422}
+{"key": "9ee2d1a31ddbc6cc123b4b1fde244722cee8a81dd4879ed91b0cf31c94d0a011", "odi_no": "11634659", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 321, "completion_tokens": 307, "latency_s": 3.765}
+{"key": "cd487298cd114ab77626c129f091ab15fa5fa8608293c2bb79f6d55fe4fc3f1d", "odi_no": "11634869", "raw": "POWER TRAIN", "prompt_tokens": 218, "completion_tokens": 53, "latency_s": 3.656}
+{"key": "2a45c1e9b0a18c149951aad062c0fdaeaf7f4668e6fa1774cc2ea34e0be7274d", "odi_no": "11634889", "raw": "VISIBILITY/WIPER", "prompt_tokens": 267, "completion_tokens": 126, "latency_s": 2.453}
+{"key": "4438dac5b8e9e7be7af7ff65272c5b1de8760bb74c261ba112a6da6d4e1d8e49", "odi_no": "11634896", "raw": "", "prompt_tokens": 364, "completion_tokens": 400, "latency_s": 4.125}
+{"key": "0cc6aa38140d6a8c3341e1d48bab3f9c43ac84ab77c4b66d4d6d30cfac6c245a", "odi_no": "11634914", "raw": "EXTERIOR LIGHTING", "prompt_tokens": 225, "completion_tokens": 77, "latency_s": 4.422}
+{"key": "05204e67a8090aba6519a5d9d3a31a64c499b3fcba8edc8c4eb71a543acf0644", "odi_no": "11635056", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 262, "completion_tokens": 189, "latency_s": 2.578}
+{"key": "105b603cc00cbf5dc3079a445b5d9827af83f138daeb5bcd985f37b517ed5074", "odi_no": "11635209", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 418, "completion_tokens": 111, "latency_s": 4.64}
+{"key": "9e2c31340df0132675a9901b2ae37a76c686d7367fc59ed37c82ae32898c688b", "odi_no": "11635801", "raw": "POWER TRAIN", "prompt_tokens": 333, "completion_tokens": 100, "latency_s": 2.485}
+{"key": "e5309a5d3826510666fc504f569ea4d1ab079bc73058086f6bdfb75f89a15ebe", "odi_no": "11636107", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 260, "completion_tokens": 208, "latency_s": 2.359}
+{"key": "f93e9f9442b8042dbb22c5c8499bc6591bb9c19791ed84fa31f42be9ddbb3cb1", "odi_no": "11636234", "raw": "EXTERIOR LIGHTING", "prompt_tokens": 352, "completion_tokens": 71, "latency_s": 4.515}
+{"key": "9c41d56cedcf9d6a019ec2941379986453a925c3da541d22198018de71eadb48", "odi_no": "11636568", "raw": "POWER TRAIN", "prompt_tokens": 295, "completion_tokens": 157, "latency_s": 3.344}
+{"key": "ebc828d2e2d8e3eabcfa6d8ef4c1bc9de97ffa2570a132cf125fc846a38a36dd", "odi_no": "11636618", "raw": "ENGINE", "prompt_tokens": 343, "completion_tokens": 134, "latency_s": 3.5}
+{"key": "e52a962912cf7adf85bcc90c9826934993e8ca639b15ce46ca16d32156104a12", "odi_no": "11636787", "raw": "POWER TRAIN", "prompt_tokens": 278, "completion_tokens": 139, "latency_s": 3.5}
+{"key": "6cf743a2f3157b4d7a39da25aeb67323a42c632ffd71a8dbb75070c17d584c0f", "odi_no": "11636860", "raw": "ENGINE", "prompt_tokens": 366, "completion_tokens": 81, "latency_s": 3.235}
+{"key": "9c1ee07b0a655f89e7c85be87ba8e91f723ea31e5b3d454e87db4efb5c028cfc", "odi_no": "11637039", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 332, "completion_tokens": 87, "latency_s": 3.531}
+{"key": "5edd258d7db4f27201cff38ecc39423a19fcdb08ddde7e469427e87dd653ce8b", "odi_no": "11637098", "raw": "ENGINE", "prompt_tokens": 544, "completion_tokens": 78, "latency_s": 4.25}
+{"key": "c95a51d18cbc5f2e0de0b1fe874304e8bee88106a3ea37fcd11e0f1e4175b4b6", "odi_no": "11637443", "raw": "OTHER", "prompt_tokens": 271, "completion_tokens": 185, "latency_s": 3.187}
+{"key": "b48e969e5797c3029c610e095860f739f8d0dfa2f4ef34b7eb729ffe021a759a", "odi_no": "11637802", "raw": "", "prompt_tokens": 255, "completion_tokens": 400, "latency_s": 3.766}
+{"key": "970260f15c712b804fad82a6e933adfae6b4072a6cc2824356f86dd698c1cbda", "odi_no": "11637804", "raw": "ENGINE", "prompt_tokens": 313, "completion_tokens": 95, "latency_s": 3.516}
+{"key": "8d9e374999dbf99a2b1c2f162d8a170f32f7229b4319d18ade9178a167102e2c", "odi_no": "11637925", "raw": "OTHER", "prompt_tokens": 409, "completion_tokens": 199, "latency_s": 4.671}
+{"key": "4c42028e6fe3f9f406e3e0d33e89eebccd243e54c7550e8254a4dbb596dd473d", "odi_no": "11637946", "raw": "ENGINE", "prompt_tokens": 312, "completion_tokens": 94, "latency_s": 4.25}
+{"key": "d01656cfdf8fe6d8bb391a64c0cbb9e022919e90480f114e639b30272b74b538", "odi_no": "11638375", "raw": "STRUCTURE", "prompt_tokens": 358, "completion_tokens": 69, "latency_s": 1.235}
+{"key": "c43e07722314919a12cd8958aefdc51a240f2adac0a31071a6b70080e8489020", "odi_no": "11638423", "raw": "AIR BAGS", "prompt_tokens": 329, "completion_tokens": 170, "latency_s": 3.453}
+{"key": "78ef73b57e34f5f1fb87d41dfcc6418ca8e961a72e1a7b9ef92dcc7711170305", "odi_no": "11638577", "raw": "POWER TRAIN", "prompt_tokens": 274, "completion_tokens": 159, "latency_s": 3.734}
+{"key": "8a8ff241feb84e08840a0933c36a70cf11cf0931e9793ad16f172827a0d8f689", "odi_no": "11638718", "raw": "ENGINE", "prompt_tokens": 232, "completion_tokens": 108, "latency_s": 2.438}
+{"key": "8c77e623a0e17e791b99f375f7433471d87f982ae8973e2edc6de1b96950aefe", "odi_no": "11639134", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 500, "completion_tokens": 79, "latency_s": 5.422}
+{"key": "b285013ff6fce1f20b53281df506217c5d2f698d96a5108352d98dca27133fce", "odi_no": "11639360", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 447, "completion_tokens": 91, "latency_s": 3.687}
+{"key": "07fb4e8d003c831e72827f80711e2a2e972882580590d7e463f38d96f7730351", "odi_no": "11639736", "raw": "ENGINE", "prompt_tokens": 267, "completion_tokens": 44, "latency_s": 2.391}
+{"key": "3a297918ce6f5e3dda91ef63508147f08c928d6b0bdb83999f04e583ea6ba618", "odi_no": "11640516", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 504, "completion_tokens": 99, "latency_s": 5.25}
+{"key": "d56aa43383bc38f25fe34a0752d5f6c22978b784edb44a002cff34214e2ac5bb", "odi_no": "11640961", "raw": "STRUCTURE", "prompt_tokens": 272, "completion_tokens": 176, "latency_s": 0.485}
+{"key": "df2696fe67427662a75457dbed1de3cf8a37ee38bd274dd783599da1ea4b177e", "odi_no": "11641782", "raw": "OTHER", "prompt_tokens": 219, "completion_tokens": 173, "latency_s": 2.469}
+{"key": "2d0ffde50bc183403d3287f6c524ecce631f37d1f2f1b1d7ff2042b7827335e7", "odi_no": "11641987", "raw": "ENGINE", "prompt_tokens": 324, "completion_tokens": 36, "latency_s": 3.422}
+{"key": "4652f41392810322e205c6f5cf4e6d1fa376163cf6e3c696014703762bd6ce8b", "odi_no": "11642771", "raw": "OTHER", "prompt_tokens": 278, "completion_tokens": 243, "latency_s": 1.656}
+{"key": "56fb350885dd7bdf4eb29c0b4484806da0c861bd841d04f2892afaff477028b5", "odi_no": "11642871", "raw": "SUSPENSION", "prompt_tokens": 485, "completion_tokens": 66, "latency_s": 5.5}
+{"key": "7e21a98006df2c632719aeaf594794dad3f5ffa524bc25e3741d0b83e9948717", "odi_no": "11642922", "raw": "POWER TRAIN", "prompt_tokens": 226, "completion_tokens": 77, "latency_s": 2.437}
+{"key": "03559224d915e8308fbb67e53bb62f7d928de9f0a3c3d587ec0fe20c6adce981", "odi_no": "11643010", "raw": "", "prompt_tokens": 296, "completion_tokens": 400, "latency_s": 2.782}
+{"key": "a2f232ad54f6a942765e5dc5ce5f3859a9e51038cc174848b6f3f131279838d5", "odi_no": "11643111", "raw": "POWER TRAIN", "prompt_tokens": 254, "completion_tokens": 129, "latency_s": 4.531}
+{"key": "1f601ef1b6206f78ce03a5db251c579f0ca35a5b24756871987c5b7574ed25e7", "odi_no": "11643131", "raw": "ENGINE", "prompt_tokens": 554, "completion_tokens": 54, "latency_s": 5.297}
+{"key": "557583b167a74f8e75243e726ca85d24f3bfced86bef1d16f5913bf9610e4389", "odi_no": "11643210", "raw": "VISIBILITY/WIPER", "prompt_tokens": 287, "completion_tokens": 82, "latency_s": 2.797}
+{"key": "65146c18c0cbb3e4340d1b5b1048d5a887b559e0a0f2ab88e486138af8321c65", "odi_no": "11643313", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 293, "completion_tokens": 156, "latency_s": 2.375}
+{"key": "ec3cb9efa8c6e6c9685e1b73221996712de9f1be0419daec02e08c3d962bfdc0", "odi_no": "11643430", "raw": "SERVICE BRAKES", "prompt_tokens": 386, "completion_tokens": 85, "latency_s": 4.515}
+{"key": "377a05f3725903304f5255291613464e406799927ae7684925b8f56cd96d3372", "odi_no": "11643514", "raw": "STRUCTURE", "prompt_tokens": 494, "completion_tokens": 164, "latency_s": 4.469}
+{"key": "b3586085920c4bbd20fdf90bb31c8e3b6ac68dbf23ca1b42a3d0ab60a2a35bc8", "odi_no": "11643571", "raw": "ENGINE", "prompt_tokens": 500, "completion_tokens": 36, "latency_s": 4.406}
+{"key": "40809c76d3694026a7d55b34b22d28416a2aba5ca5c2443bea8d5023384f586c", "odi_no": "11643693", "raw": "ENGINE", "prompt_tokens": 418, "completion_tokens": 74, "latency_s": 3.282}
+{"key": "0f05b43d9877b0cb80feded47be5c0ce3ee4bb3e2ddd7d9cc25daa740009d238", "odi_no": "11643868", "raw": "SERVICE BRAKES", "prompt_tokens": 245, "completion_tokens": 187, "latency_s": 1.609}
+{"key": "dc918148109ba5b63dced09827437f3a2a12940a0db6bf120857210f82b618ca", "odi_no": "11643965", "raw": "POWER TRAIN", "prompt_tokens": 309, "completion_tokens": 109, "latency_s": 4.453}
+{"key": "0e2e3527081ebae08e6729e19626c41018f7f99ac2c98b582ce7297e926c4e02", "odi_no": "11643992", "raw": "STEERING", "prompt_tokens": 394, "completion_tokens": 92, "latency_s": 3.344}
+{"key": "6cbf2afea5460b922641787067cd1953eca9104396cd584671c0023153f2322a", "odi_no": "11644153", "raw": "POWER TRAIN", "prompt_tokens": 227, "completion_tokens": 181, "latency_s": 2.625}
+{"key": "bfc326020889502e88baf13ac71d57ab4681926177dc4df443a06b8d9b68c204", "odi_no": "11644206", "raw": "ENGINE", "prompt_tokens": 373, "completion_tokens": 55, "latency_s": 4.234}
+{"key": "f3525c317bb6ee43051840aaf92e2b1bb3e9a1af426e83444dbdc7a0b9f4edec", "odi_no": "11644259", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 301, "completion_tokens": 71, "latency_s": 2.422}
+{"key": "9c27b6171afd1296fa35945e3c98db7e28c7e23ebb42be247a6a48f3edce7b69", "odi_no": "11644296", "raw": "SERVICE BRAKES", "prompt_tokens": 239, "completion_tokens": 89, "latency_s": 2.203}
+{"key": "3da78b02da5cfc19062107ccc8679dd03ad6103f043048ca667448f71a744b9b", "odi_no": "11644881", "raw": "SERVICE BRAKES", "prompt_tokens": 340, "completion_tokens": 66, "latency_s": 3.407}
+{"key": "560ddea35cb7803566bfcf6d2971e906349ccce7ef6a8c8aaf18c4d522d015da", "odi_no": "11645102", "raw": "STEERING", "prompt_tokens": 385, "completion_tokens": 61, "latency_s": 1.359}
+{"key": "8ed8bdff5e5cdb46772d76961f0e0e68a5a0dfbb60e22529225d4471d409f37c", "odi_no": "11645490", "raw": "POWER TRAIN", "prompt_tokens": 483, "completion_tokens": 222, "latency_s": 4.437}
+{"key": "b3dcdf0dde7d9aef335915d2f1048337126a60115e070d9fa434014e4e51c6ee", "odi_no": "11645515", "raw": "ENGINE", "prompt_tokens": 365, "completion_tokens": 49, "latency_s": 3.375}
+{"key": "0c60b76b43568be84569d02bf8f2a8d5abe65fcbf71ab5f01d6a99ead9dd53fe", "odi_no": "11645585", "raw": "ENGINE", "prompt_tokens": 284, "completion_tokens": 87, "latency_s": 4.391}
+{"key": "074dfae243d83d3b7d6e60494bfedcdec6683a5b7d12fc237fad83c8f2538a8a", "odi_no": "11645647", "raw": "EXTERIOR LIGHTING", "prompt_tokens": 244, "completion_tokens": 86, "latency_s": 2.453}
+{"key": "ceda99878e2376c8e7640e5f856c3e18c1ed8aa6ecfb0c979e4338a307ed34cb", "odi_no": "11645650", "raw": "ENGINE", "prompt_tokens": 292, "completion_tokens": 138, "latency_s": 2.484}
+{"key": "2503538ae561497df9c8dc073c409f858572a8cd639d948b3b867a6330dad59e", "odi_no": "11645726", "raw": "VISIBILITY/WIPER", "prompt_tokens": 453, "completion_tokens": 62, "latency_s": 4.204}
+{"key": "6766bdc001f825abdd797917cecb319678f74d602f04fbd4bd4f3cfb5bdf9af0", "odi_no": "11645893", "raw": "STEERING", "prompt_tokens": 277, "completion_tokens": 122, "latency_s": 2.406}
+{"key": "100b354154d2fdf880f20f257347053501f58d9bf97a0668dfcd25df568c4d47", "odi_no": "11646041", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 296, "completion_tokens": 73, "latency_s": 3.484}
+{"key": "d6ef1345415fdfc04b2d832e5c7b3a3fd7cb4012336e1e8ec4c817160503bd9d", "odi_no": "11646200", "raw": "FUEL/PROPULSION SYSTEM", "prompt_tokens": 294, "completion_tokens": 67, "latency_s": 2.594}
+{"key": "7202c5af5f79bba87dbc5ab7993bc1165a70c2d1a713279cd7829e5392add7f0", "odi_no": "11646373", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 313, "completion_tokens": 88, "latency_s": 3.562}
+{"key": "e63f02a1965330feadce9b43ae936d745f2815e53559a3c2737f721b63362a99", "odi_no": "11647390", "raw": "POWER TRAIN", "prompt_tokens": 285, "completion_tokens": 94, "latency_s": 2.375}
+{"key": "73514005e0be30e35504b9c7db96afdd4f6079e4f57e66ee6ac156e0b838609c", "odi_no": "11647946", "raw": "POWER TRAIN", "prompt_tokens": 341, "completion_tokens": 47, "latency_s": 3.75}
+{"key": "a0c02c519fc0c7fcdee75b83e8d91b59091e874f4d9c432a3e3d04c748e499f1", "odi_no": "11648093", "raw": "EXTERIOR LIGHTING", "prompt_tokens": 387, "completion_tokens": 52, "latency_s": 1.312}
+{"key": "8ec99f735677bee0d9f7f68defb46be05f94e082ef2fe39bb97e5351c08f96c1", "odi_no": "11648190", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 311, "completion_tokens": 60, "latency_s": 3.219}
+{"key": "e3ec64f264a709d3e34afe8b007acee8c55f3c57d0d911967d418619fc76cb3d", "odi_no": "11648243", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 244, "completion_tokens": 380, "latency_s": 0.656}
+{"key": "9f5bcdce5ca2c3f7cac7de5895166dd763622442d8d64f093f3685685d782b0c", "odi_no": "11648286", "raw": "STRUCTURE", "prompt_tokens": 381, "completion_tokens": 227, "latency_s": 4.75}
+{"key": "56b9bb2db456e5d6e2a89680ad251c876cc4ed26e8dfcaed1c805b07e1cb02c4", "odi_no": "11648377", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 323, "completion_tokens": 152, "latency_s": 4.344}
+{"key": "cf4eca6a077c38365980175bb7f5782b9a5f4f715f22b7c981a605eebfaca4b6", "odi_no": "11648700", "raw": "ENGINE", "prompt_tokens": 331, "completion_tokens": 70, "latency_s": 3.5}
+{"key": "d19c1ffb66ed223d7852d773bbf9e2290a7db76297b908b853d615456ec20338", "odi_no": "11648714", "raw": "ENGINE", "prompt_tokens": 337, "completion_tokens": 41, "latency_s": 3.609}
+{"key": "30e07a06f1723bd3b1e48fe67ce757183a646bb00b79bda0e5ceb442562073a9", "odi_no": "11648805", "raw": "ENGINE", "prompt_tokens": 297, "completion_tokens": 268, "latency_s": 2.672}
+{"key": "f003c26bd2c0c50bb5352b69f6dc2a538c4ed45c60c8b18fb9c8af21e0e3f14b", "odi_no": "11649145", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 448, "completion_tokens": 206, "latency_s": 4.547}
+{"key": "414e3adfed3de99d1eaeb9b88e58766c52c32336f39b49d4e9e4348b831d358e", "odi_no": "11649190", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 474, "completion_tokens": 150, "latency_s": 5.531}
+{"key": "c04cad7d0ce596f3f06378623d7d4300e80886de4d93092918e43d0151bce052", "odi_no": "11649606", "raw": "POWER TRAIN", "prompt_tokens": 240, "completion_tokens": 269, "latency_s": 2.609}
+{"key": "1a647c55941f364d22f2c6a9fdba82fc1bef6b38d9c3d1674600fa422b0f8059", "odi_no": "11650160", "raw": "SERVICE BRAKES", "prompt_tokens": 376, "completion_tokens": 75, "latency_s": 5.5}
+{"key": "0e3fd0a483347f3da75cbb7089ff26ae050581c81f45fde0f99b50efc048413a", "odi_no": "11650265", "raw": "POWER TRAIN", "prompt_tokens": 241, "completion_tokens": 212, "latency_s": 1.391}
+{"key": "10583ffd67a2b08f7c83b940511d45be59ea2037bd90c535755f694fcbbc983e", "odi_no": "11650604", "raw": "POWER TRAIN", "prompt_tokens": 232, "completion_tokens": 106, "latency_s": 2.438}
+{"key": "e8b0665455f1090b2c1fd0da236c976166bfc873a0975b15718eabfac9ef8a59", "odi_no": "11650681", "raw": "POWER TRAIN", "prompt_tokens": 522, "completion_tokens": 96, "latency_s": 5.422}
+{"key": "5ee7095f4a293058fe85181ada214338b6c4ae10ea4e00f8271a8e066f20dbe5", "odi_no": "11650705", "raw": "POWER TRAIN", "prompt_tokens": 322, "completion_tokens": 279, "latency_s": 3.093}
+{"key": "df025d61c5ad80a84e5927d3ecb66c595b5516da8b8c2c169c98483be538759d", "odi_no": "11650828", "raw": "EXTERIOR LIGHTING", "prompt_tokens": 299, "completion_tokens": 104, "latency_s": 3.891}
+{"key": "ee3e5122536e48689287bb05eed6b259ae13a584c7a868f2d2bdd7bf88e59a1a", "odi_no": "11606239", "raw": "SERVICE BRAKES", "prompt_tokens": 270, "completion_tokens": 166, "latency_s": 0.703}
+{"key": "e6aee785d7c722c13f89b482247efed32022efda72b5e71f5f2090e55f8d94a0", "odi_no": "11606280", "raw": "ENGINE", "prompt_tokens": 334, "completion_tokens": 164, "latency_s": 0.531}
+{"key": "c7812f70e833734fbc0e15d62091c6b2e9192319d613785cd0a501c48f44c271", "odi_no": "11606371", "raw": "STRUCTURE", "prompt_tokens": 277, "completion_tokens": 201, "latency_s": 0.422}
+{"key": "367a91176909a338f3b6b74e0df16da7e83d37888bc4d7d21c13ecee0db0ae14", "odi_no": "11606441", "raw": "STEERING", "prompt_tokens": 352, "completion_tokens": 82, "latency_s": 0.375}
+{"key": "e7dfb535acd59f8a5db788e1734675cbc798e6c92307735301a0abb66444a609", "odi_no": "11606524", "raw": "ENGINE", "prompt_tokens": 304, "completion_tokens": 90, "latency_s": 0.406}
+{"key": "cb6eb8deec489608103a1eef9c684df1eebbc404084511689014dddff9772ec6", "odi_no": "11607133", "raw": "AIR BAGS", "prompt_tokens": 355, "completion_tokens": 57, "latency_s": 0.469}
+{"key": "8f5d115cae840b440375f675189307d8728e63ee2bccc48491d94a5994e53851", "odi_no": "11607169", "raw": "POWER TRAIN", "prompt_tokens": 381, "completion_tokens": 117, "latency_s": 0.515}
+{"key": "1002f931fc450500fd645bf427d5bfbe8bb3b7b7eb0ae213a21fe8befc9f2e77", "odi_no": "11607603", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 237, "completion_tokens": 87, "latency_s": 0.625}
+{"key": "4fbc19ecd6babf6a5054354e632319cbcc575e4cfa75406c5f2df14158e696c4", "odi_no": "11607615", "raw": "ENGINE AND ENGINE COOLING", "prompt_tokens": 287, "completion_tokens": 298, "latency_s": 0.609}
+{"key": "18c72bf17c625d61dd8e8dda88505f87d904248d28340f3271f5e0dbd20eeeaf", "odi_no": "11607731", "raw": "STEERING", "prompt_tokens": 314, "completion_tokens": 238, "latency_s": 0.407}
+{"key": "eae6adc66e5844bda97946e8d9ad3493ebd26ef7194875dd20a72002d4dd891c", "odi_no": "11607990", "raw": "STRUCTURE", "prompt_tokens": 330, "completion_tokens": 223, "latency_s": 0.375}
+{"key": "8c3701bd491b68fcb19f07bcd205d97a3964b863bb689fc242e9962ddb0e7424", "odi_no": "11608098", "raw": "ELECTRICAL SYSTEM", "prompt_tokens": 337, "completion_tokens": 222, "latency_s": 0.656}
+{"key": "4ba90a79ac16b379ff731a9109cae8a4cd9f904965111e284d641d814c370a93", "odi_no": "11608214", "raw": "", "prompt_tokens": 239, "completion_tokens": 400, "latency_s": 0.907}
+{"key": "1fc6856645d7744cbe590dc1e09da6248b2bf4d9e0ffaf484829e502b3e5d076", "odi_no": "11608351", "raw": "EXTERIOR LIGHTING", "prompt_tokens": 279, "completion_tokens": 122, "latency_s": 0.921}
+{"key": "79c3064ccef5d85a56d855606e0c5aae767c8695a777c181e54b2946dd5e5077", "odi_no": "11608434", "raw": "SERVICE BRAKES", "prompt_tokens": 215, "completion_tokens": 124, "latency_s": 0.469}

@@ -1,0 +1,112 @@
+[
+  {
+    "true": "ELECTRICAL SYSTEM",
+    "predicted": "OTHER",
+    "count": 269,
+    "examples": [
+      {
+        "odi_no": "10904870",
+        "received": "2016-09-08",
+        "text": "THE DOOR AJAR LIGHT WAS CONTINUING TO TURN ON, EVEN WHILE DRIVING, CREATING AN UNSAFE DRIVING SITUATION AS ALL THE INTERIOR LIGHTS COME ON AND WILL NOT TURN OFF UNTIL YOU PULL OVER, PUT THE CAR IN PARK, OPEN THE DOOR, PUSH IN THE DOOR LATCH, AND THEN SHUT IT AGAIN AND AGAIN UNTIL THE DOOR AJAR COMES OFF. I HAD THIS FIXED AT WHILE STILL UNDER WARRANTY. IT STARTED DOING THIS AGAIN LESS THAN 6 MONTHS LATER. I WAS THEN INFORMED THAT THE DRIVERS DOOR LATCH IS FAULTY AND THE SWITCH INSIDE IS CAUSING THE LIGHT TO STAY ON. IT IS RECOMMENDED TO REPLACE THE LF DOOR LATCH AT $445. IT WAS \"CLEANED\" ACCORD"
+      },
+      {
+        "odi_no": "11404054",
+        "received": "2021-03-20",
+        "text": "GOT MY STARTER REPLACED SINCE IT WAS TURNING OFF ON ME BUT THAT DID NOT FIX THE ISSUE. READING A LOT OF SIMILAR SITUATIONS. MY CAR HAS TURNED OFF ON ME ONCE ON THE FREEWAY AND I ALMOST GOT HIT THE GOOD THING IS I WAS ON THE FAR LEFT LANE AND TURNED THE WHEEL ON TIME, BUT MY CAR WAS STILL STICKING OUT A BIT I ALMOST GOT HIT MULTIPLE TIMES. TURNED OFF ON ME TWICE ON THE STREET LUCKILY I WAS IN TRAFFIC, STILL A SCARY AND RISKY SITUATION. ALSO TRIED REPLACING THE ALTERNATOR DID NOT WORK."
+      },
+      {
+        "odi_no": "11267756",
+        "received": "2019-10-10",
+        "text": "TL* THE CONTACT OWNS A 2015 KIA RIO. WHILE DRIVING 40 MPH AND APPROACHING ANOTHER VEHICLE'S BLIND SPOT, THE CONTACT PRESSED THE HORN, BUT IT FAILED TO FUNCTION. THERE WERE NO WARNING INDICATORS ILLUMINATED. THE VEHICLE WAS TAKEN TO CARWORLD (LOCATED AT 11916 PRAIRIE AVE, HAWTHORNE, CA 90250, (833) 219-9951), BUT WAS NOT DIAGNOSED OR REPAIRED. THE MANUFACTURER WAS NOTIFIED OF THE FAILURE. THE FAILURE MILEAGE WAS 87,241."
+      }
+    ]
+  },
+  {
+    "true": "STRUCTURE",
+    "predicted": "OTHER",
+    "count": 226,
+    "examples": [
+      {
+        "odi_no": "10700711",
+        "received": "2015-03-20",
+        "text": "SHARP PARTS AND PIECES KEEP FALLING OFF THE DASH OF MY TRUCK AND MOST OF NOT ALL HAVE EITHER HIT MY PASSENGER OR MYSELF WHILE DRIVING. *TR"
+      },
+      {
+        "odi_no": "11590936",
+        "received": "2024-05-27",
+        "text": "Tailgate randomly opened while in park. This is a problem for multiple reasons. When hauling a travel trailer when you put the truck in park the tailgate falls into the jack denting the tailgate and scratching the paint. On some trailers it would be possible for the tailgate to fall onto the jack switches causing the jack to go down unexpectedly. The only way to get the trailer off is not put the truck in Park which isn\u2019t safe at all! The truck rolls in neutral if the parking brake isn\u2019t on. You should be able to put the truck in park and not worry about the tailgate. I called GM a few months "
+      },
+      {
+        "odi_no": "11341770",
+        "received": "2020-07-28",
+        "text": "THE DRIVER'S SIDE SLIDING DOOR ON OUR 2016 DODGE CARAVAN CANNOT BE OPENED. IT STOPPED WORKING AFTER HAVING THE VEHICLE FOR LESS THAN TWO YEARS. IT CANNOT BE OPENED FROM THE INSIDE OR OUTSIDE WHICH IS A SAFETY CONCERN FOR PASSENGERS TRYING TO GET OUT OF THE VEHICLE QUICKLY IN AN EMERGENCY. WE WERE TOLD THE INTERIOR LATCH WAS BROKEN AND THAT IT WOULD BE EXPENSIVE TO FIX. I BELIEVE THIS IS A KNOWN ISSUE WITH THESE VEHICLES AS A NUMBER OF OTHERS HAVE REPORTED THE SAME PROBLEM."
+      }
+    ]
+  },
+  {
+    "true": "OTHER",
+    "predicted": "ELECTRICAL SYSTEM",
+    "count": 178,
+    "examples": [
+      {
+        "odi_no": "10855648",
+        "received": "2016-04-15",
+        "text": "THE BACK RIGHT PASSENGER WINDOW REGULATOR BROKE AND THE WINDOW FELL DOWN INTO THE DOOR. IT HAS BEEN TAPED FOR A WHILE BECAUSE IT IS ASTRONOMICALLY EXPENSIVE TO FIX. I SEE MANY JEEPS DRIVING AROUND ALL THE TIME WITH TAPE ON THE WINDOWS BECAUSE OF THIS EXACT ISSUE. AFTER GOOGLING THE ISSUE IT IS WELL KNOWN IN THE JEEP COMMUNITY."
+      },
+      {
+        "odi_no": "11110559",
+        "received": "2018-07-10",
+        "text": "CONNECT THE PHONE TO STEREO, ACTIVATE DEVICE ASSISTANT, PHONE CALL OR PLAY AUDIO FROM THE DEVICE THROUGH STEREO. THE STEREO WILL REBOOT. THIS HAS OCCURRED A NUMBER OF TIMES DURING THE FIRST COUPLE WEEKS OF OWNERSHIP. DOESN'T MATTER IF VEHICLE IS IN MOTION OR NOT."
+      },
+      {
+        "odi_no": "11632130",
+        "received": "2024-12-23",
+        "text": "The locking mechanism inside the driver\u2019s side door was not always working\u2026it would sometimes lock and Not Unlock and other times just Not Lock. We could sometimes hear the mechanism trying to work, but not. Seemed to happen more on cold weather days. My husband has had to \u201ccrawl out\u201d of the passenger side door when he could not get the lock to unlock, nor able to pull it up. He\u2019s a big man. This is certainly a safety issue. We took our truck to Stokes Hodges Ford in Aiken, on 1850 Jefferson Davis Hwy, Graniteville, SC 29829, to be diagnosed and then repaired by them. They told us they were ab"
+      }
+    ]
+  },
+  {
+    "true": "OTHER",
+    "predicted": "ENGINE",
+    "count": 148,
+    "examples": [
+      {
+        "odi_no": "11646436",
+        "received": "2025-03-05",
+        "text": "There is an internal coolant leak. Ford is aware of this and there are recalls but my vin number doesn't fall under the recalls. I have to fill coolant twice aweek"
+      },
+      {
+        "odi_no": "11266005",
+        "received": "2019-10-03",
+        "text": "VEHICLE BEGAN TO SMOKE FROM ENGINE BAY. MOTOR CUT OUT AND THEN BURST INTO FLAMES."
+      },
+      {
+        "odi_no": "11751256",
+        "received": "2026-07-18",
+        "text": "My family and I departed the dealership around 7:27 PM with our 2025 Nissan Kicks that only had 4,500 miles on it. My step son and I were driving the new car home. We got maybe a mile from our house and I heard a small pop and started smelling gas really bad. Once we pulled onto our road I heard another pop, all of the lights came on the dash and a bunch of white smoke came from the hood of the car. I put the car in park and turned the engine off and got me and my step son out to the car. We went into the field next to the car and as soon as we crossed the road, there were flames coming out of"
+      }
+    ]
+  },
+  {
+    "true": "OTHER",
+    "predicted": "STRUCTURE",
+    "count": 140,
+    "examples": [
+      {
+        "odi_no": "11575160",
+        "received": "2024-03-03",
+        "text": "Clear coat paint is peeling rapidly on the driver side door. This is the only affected area and this car has never been in an accident, so it\u2019s the original manufactured part. Car has 59K miles on it"
+      },
+      {
+        "odi_no": "11415914",
+        "received": "2021-05-10",
+        "text": "WINDSHIELD TRIM PIECE CAME OFF WHILE TRAVELING ON THE FREEWAY."
+      },
+      {
+        "odi_no": "11052705",
+        "received": "2017-12-06",
+        "text": "DASH BOARD UNEXPECTEDLY CRACKED AT THE EXACT SAME SPOTS ON THE DRIVER SIDE AND PASSENGER SIDE. THE LOCATION IS OVER THE AIRBAGS WHICH COULD POSSIBLY TURN THE DASH BOARD INTO SHRAPNEL IF MY FAMILY AND I WERE TO GET INTO AN ACCIDENT. GMC SAID THERE IS NO RECALL AND THAT THEY WILL NOT REPLACE IT."
+      }
+    ]
+  }
+]

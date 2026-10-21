@@ -1,0 +1,112 @@
+[
+  {
+    "true": "ELECTRICAL SYSTEM",
+    "predicted": "OTHER",
+    "count": 420,
+    "examples": [
+      {
+        "odi_no": "11675004",
+        "received": "2025-07-21",
+        "text": "The SOS Module has failed three times over 24 months of ownership. Each time, the dealer replaced the module and the faults comes back. This failure means I cannot contact VW for help in case of accident or breakdown. Part number: SWA-035-283-D"
+      },
+      {
+        "odi_no": "11742777",
+        "received": "2026-06-08",
+        "text": "I am writing to report a serious safety issue with the radio/head unit in my 2016 Honda Accord. The head unit intermittently fails while I am driving, producing a sudden, extremely loud static noise that continues without stopping until the car is turned off. This issue creates a hazardous driving condition because the unexpected loud static is distracting and disorienting, and it prevents me from using the car safely until I can safely stop and turn off the vehicle. This failure has occurred repeatedly, and I am concerned that it could cause an accident or prevent me from reacting appropriate"
+      },
+      {
+        "odi_no": "11686354",
+        "received": "2025-09-10",
+        "text": "Rear back-up camera fails repeatedly. The image portrayed on the dash is garbled and I am unable to determine vehicles, obstacles or persons behind me when backing. Problem is very reproducible although the dealer has not diagnosed the problem. The car is out of warranty. The only message displayed on the screen is something like \"Park Pilot error\"."
+      }
+    ]
+  },
+  {
+    "true": "ENGINE AND ENGINE COOLING",
+    "predicted": "ENGINE",
+    "count": 375,
+    "examples": [
+      {
+        "odi_no": "11663448",
+        "received": "2025-05-28",
+        "text": "The contact owns a 2021 Jeep Compass. The contact stated while driving 75 MPH, a message indicating that the engine was overheating was displayed. The contact pulled over to the side of the road and added water to the coolant reservoir. Additionally, the contact stated that the engine was not running properly while driving. The contact stated that upon inspecting the vehicle, the contact noticed that there was a burned coolant mark underneath the engine. An unknown dealer was notified of the failure and informed the contact that the vehicle was not covered under warranty. The vehicle was not d"
+      },
+      {
+        "odi_no": "11614476",
+        "received": "2024-09-13",
+        "text": "The contact owns a 2019 Ford Fusion. The contact stated while operating the vehicle, the check engine warning light illuminated and remained illuminated with the engine overheating. The vehicle was taken to the local dealer who diagnosed an internal engine coolant leak. The contact was informed that the engine needed to be replaced. The vehicle was not yet repaired. The manufacturer was notified of the failure, but no assistance was offered. The failure mileage was approximately 100,000."
+      },
+      {
+        "odi_no": "11610309",
+        "received": "2024-08-22",
+        "text": "The contact owns a 2021 Ford EcoSport. The contact received notification of NHTSA Campaign Number: 23V905000 (Engine and Engine Cooling); however, the part to do the recall repair was not yet available. The local dealer was contacted. The contact stated that the manufacturer had exceeded a reasonable amount of time for the recall repair. The contact stated while driving at an undisclosed speed, the check engine warning light illuminated. The vehicle was taken to an independent mechanic. The contact was informed that the oil pump tensioner assembly and oil pump drive belt had failed, and the en"
+      }
+    ]
+  },
+  {
+    "true": "OTHER",
+    "predicted": "ELECTRICAL SYSTEM",
+    "count": 231,
+    "examples": [
+      {
+        "odi_no": "11763672",
+        "received": "2026-09-11",
+        "text": "starter had short life 76k on a 2020 average is 100k or 10 year I never had a car starter die this early"
+      },
+      {
+        "odi_no": "11653349",
+        "received": "2025-04-08",
+        "text": "The horn stopped working less than a year after I bought the car brand new. The dealer finally agreed to repair/replace it in Feb 2024. Less than a year later it is not working again. A horn is important for alerting other drivers to impending collisions. It also leaves me without a panic button, another important safety feature."
+      },
+      {
+        "odi_no": "11610655",
+        "received": "2024-08-24",
+        "text": "On multiple occasions, the horn itself will start blowing without command. After pressing the horn to alert another driver, the horn will then stick again. There are repairs where 3m tape is applied to the horn switch behind the airbag, however it is not a professional repair and looks like it could potentially cause the horn to blow without command again."
+      }
+    ]
+  },
+  {
+    "true": "OTHER",
+    "predicted": "STRUCTURE",
+    "count": 186,
+    "examples": [
+      {
+        "odi_no": "11711162",
+        "received": "2026-01-15",
+        "text": "I have a 2019 Kia Sportage with 41k miles on it and the paint is peeling. As of now, the roof spoiler is completely peeled off. The side view mirrors, and the door handles, have paint peeling and bubbling. I have reported it to Kia and they are unwilling to stand by their product and extend the warranty on the paint. Kia is fully aware of the problem but is not willing to fix it."
+      },
+      {
+        "odi_no": "11753079",
+        "received": "2026-07-27",
+        "text": "I want to make a complaint about my 2020 Kia Soul. It is a great car, but the white paint will not stay on the car no matter what I do. It keeps flaking off all over the car. Just recently, it was my right passenger side door. It looks horrible. The car is under a car loan and is loosing paint as I pay off. I want to make Kia aware of this issue. Thank you, [XXX] INFORMATION REDACTED PURSUANT TO THE FREEDOM OF INFORMATION ACT (FOIA), 5 U.S.C. 552(B)(6)"
+      },
+      {
+        "odi_no": "11760889",
+        "received": "2026-08-31",
+        "text": "The contact owns a 2026 RAM 1500. The contact stated that while the vehicle was turned off, an attempt was made to open the front passenger door and both rear doors manually and with the key fob; however, the doors failed to unlock or open. The vehicle was restarted, but the doors remained unresponsive. After sitting for approximately 15-20 minutes, the front passenger door and both rear doors were able to unlock and open. The contact expressed concern that the failure posed a safety hazard in an emergency situation. The vehicle was not diagnosed or repaired. The manufacturer was notified of t"
+      }
+    ]
+  },
+  {
+    "true": "OTHER",
+    "predicted": "POWER TRAIN",
+    "count": 180,
+    "examples": [
+      {
+        "odi_no": "11624561",
+        "received": "2024-11-11",
+        "text": "I was parked in the Sam\u2019s parking lot, bike had been parked for approximately 2 hours. My wife, myself and my son were all there at the time this event transacted. My wife had her Jeep and I was on my bike as I had met them there to do some shopping. While loading my wife\u2019s car I decided to start my bike and start getting a little heat in it before we left. I approached the bike and pressed the power button, Ride command normally takes over 30 seconds to boot, so I stood there waiting for the screen. Once the screen booted I reach down with my foot and bring the shifter from first to neutral. "
+      },
+      {
+        "odi_no": "11644083",
+        "received": "2025-02-21",
+        "text": "Hesitation from a stop. Truck has a delay when pressing on accelerator nearly causing a collision. This happens randomly."
+      },
+      {
+        "odi_no": "11738414",
+        "received": "2026-05-17",
+        "text": "I am reporting a serious safety issue involving my 2025 Nissan Murano SL, purchased on April 21, 2026. On May 9, 2026, while driving from [XXX] to [XXX] , the vehicle began experiencing repeated failures at stoplights and in traffic. While stopped at red lights with the vehicle in drive, the vehicle unexpectedly shifted into neutral and shut off when I removed my foot from the brake pedal and attempted to accelerate. This first occurred on [XXX] at [XXX] . The issue then occurred again at [XXX] and [XXX] . Concerned for my safety, I drove directly to the dealership for service evaluation. The "
+      }
+    ]
+  }
+]

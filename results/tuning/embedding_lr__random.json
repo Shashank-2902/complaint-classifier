@@ -1,0 +1,58 @@
+{
+  "system": "embedding_lr",
+  "scheme": "random",
+  "best_C": 10,
+  "grid": [
+    {
+      "C": 1,
+      "val_macro_f1": 0.7276229408381852,
+      "val_accuracy": 0.7531791907514451
+    },
+    {
+      "C": 3,
+      "val_macro_f1": 0.7341398835681204,
+      "val_accuracy": 0.7547687861271676
+    },
+    {
+      "C": 10,
+      "val_macro_f1": 0.7360809000237968,
+      "val_accuracy": 0.7553468208092485
+    },
+    {
+      "C": 30,
+      "val_macro_f1": 0.7354981891882953,
+      "val_accuracy": 0.753757225433526
+    },
+    {
+      "C": 100,
+      "val_macro_f1": 0.729527970748834,
+      "val_accuracy": 0.7508670520231214
+    }
+  ],
+  "confidence_thresholds": [
+    0.6270277857780456,
+    0.8949280381202698
+  ],
+  "val_metrics": {
+    "n": 6920,
+    "accuracy": 0.7553468208092485,
+    "macro_f1": 0.7360809000237969,
+    "per_class_f1": {
+      "AIR BAGS": 0.940130409010077,
+      "ELECTRICAL SYSTEM": 0.6630094043887147,
+      "ENGINE": 0.794818652849741,
+      "ENGINE AND ENGINE COOLING": 0.7010309278350515,
+      "EXTERIOR LIGHTING": 0.9060240963855422,
+      "FORWARD COLLISION AVOIDANCE": 0.6708074534161491,
+      "FUEL/PROPULSION SYSTEM": 0.7430555555555556,
+      "POWER TRAIN": 0.7896825396825397,
+      "SERVICE BRAKES": 0.8380462724935732,
+      "STEERING": 0.9254498714652957,
+      "STRUCTURE": 0.5832106038291606,
+      "SUSPENSION": 0.7015384615384616,
+      "VEHICLE SPEED CONTROL": 0.4606741573033708,
+      "VISIBILITY/WIPER": 0.7298050139275766,
+      "OTHER": 0.593930080676143
+    }
+  }
+}
