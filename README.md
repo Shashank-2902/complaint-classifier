@@ -14,7 +14,7 @@ including cost, speed and the cases where each system fails.
 
 ## Results
 
-All numbers are measured on test sets that were opened once per system. Any system that has not been run says "not run".
+All numbers are measured on the test sets. Every access to a test set is logged, see "How the comparison is kept fair" for what the log shows. Any system that has not been run says "not run".
 Full tables, F1 per class and the confidence thresholds are in [results/results.md](results/results.md).
 
 Two splits: a **random** split (easy: test complaints look like the training ones) and a **time** split (train on the oldest 70 percent,
@@ -69,8 +69,23 @@ and the run could be stopped and started again.
 ## How the comparison is kept fair
 
 - **Duplicates are removed before splitting** (exact copies and near copies), so the same complaint cannot be in training and test.
-- **The test set is opened once per system and split.** Tuning code receives only the training and validation parts. The test rows come from one function that logs every access to
-  `results/test_access_log.jsonl` and refuses a second use. A test checks this.
+- **Every access to a test set is logged.** Tuning code receives only the training and validation parts. The test rows come from one function that writes every access to
+  `results/test_access_log.jsonl` and refuses a second normal use of the same system and split. A resumed run is allowed through with `forced = true`. A test checks the refusal.
+  What the log shows (times are UTC):
+
+  | System | Accesses per split | Forced | Rows read | Dates |
+  | --- | --- | --- | --- | --- |
+  | TF-IDF + logistic regression | 1 (random), 1 (time) | 0 | 13,840 | 21 Oct 2026 |
+  | Sentence embeddings + logistic regression | 1 (random), 1 (time) | 0 | 13,840 | 21 Oct 2026 |
+  | Z.ai GLM-4.5-Flash | 1 (random), 1 (time) | 0 | 1,000 | 21 Oct 2026 |
+  | Groq gpt-oss-20b | 7 (random), 7 (time) | 6 per split | 13,840 at the first access, then 1,000 | 21, 22, 23 and 24 Oct 2026 |
+  | Fine-tuned encoder | none, not run | | | |
+
+  The Groq run was resumed several times over four days because the free plan limits the tokens per day. The first access (21 Oct, 12:35 and 12:50) read the full test sets
+  of 13,840 rows. After that the run was restricted to the fixed subset of 1,000 items, and each of the six resumes (forced) read the same 1,000 items again and reused the cached answers.
+  So the Groq test items were read more than once, but the same prompt was used every time: `src/llm/prompt.py` has one commit (`6092d74`, the first commit of this repository) and
+  `git diff 6092d74 HEAD --stat -- src/llm/prompt.py` prints nothing, so it is identical in the first and the last commit.
+  The discarded first run (see below) has its own log: TF-IDF and embeddings on 20 Oct, and Groq on the time split on 20 Oct with one forced access on 21 Oct, all 13,840 rows.
 - **Settings are chosen on the validation set only.** The confidence thresholds are chosen on validation too.
 - **Fixed seeds** and the same test items for every system. The Groq row runs on a fixed subset of 1,000 test items that are test items in **both** splits, so one run fills both tables.
   Every system is also reported on exactly those 1,000 items in `results/results.md`.
@@ -85,7 +100,7 @@ Python 3.11. For the tests you need only `pip install -r requirements-dev.txt`.
 ```bash
 python -m venv .venv
 .venv/Scripts/pip install -r requirements-dev.txt            # Linux/macOS: .venv/bin/pip
-.venv/Scripts/python -m pytest                              # 87 tests, no GPU, no Groq key, no download needed
+.venv/Scripts/python -m pytest                              # 96 tests, no GPU, no Groq key, no download needed
 ```
 
 The full experiment (about 190 MB download, a few hours on a laptop):
@@ -135,11 +150,11 @@ src/prepare/         download, load, clean, labels, dedupe, splits, the guarded 
 src/baselines/       TF-IDF and embedding systems, tuning and final runs, model export for the API
 src/finetune/        training script and the Colab/Kaggle notebook
 src/llm/             zero-shot prompt, answer parser, cache, rate limit handling, providers (Groq, Z.ai), run script
-src/evaluate/        metrics, confusion analysis, thresholds, results table
+src/evaluate/        metrics, confusion analysis, thresholds, results table, label-in-text check
 api/                 FastAPI /classify with the abstain option
-tests/               86 tests, a small real-data file (tests/fixtures), no GPU or key needed
+tests/               96 tests, a small real-data file (tests/fixtures), no GPU or key needed
 docs/learn/          concept notes with walkthroughs, interview questions and glossaries
-results/             results.md, error analysis, predictions, tuning files, access log, Groq cache
+results/             results.md, label_in_text.md, error analysis, predictions, tuning files, access log, Groq cache
 ```
 
 ## Limits and things to know
@@ -149,7 +164,10 @@ results/             results.md, error analysis, predictions, tuning files, acce
 - **Sampled data.** The experiments use a random sample of 70,000 of the 554,344 unique single-component complaints, so that they run on a laptop. Results on all data could differ slightly.
 - **`OTHER` is not one thing.** It mixes NHTSA's own catch-all and every component outside the 14 named classes, so it is hard to predict by design.
 - **Complaints can name the component themselves.** Some texts include the recall's component name (for example "(Engine and Engine Cooling)"). I did not remove this, because it is part of the real data.
-- **Zero-shot on this task.** The prompt contains only the class names, and a free-plan model was used (`glm-4.5-flash`, 5 of 1,000 answers were not a valid class). It cannot know NHTSA's labelling habits, such as when staff use `ENGINE` and when `ENGINE AND ENGINE COOLING`.
+  The complaint's own label name in brackets is in the text for 8.8 percent of the random-split test complaints (1,223 of 13,840) and 6.7 percent of the time-split ones (932 of 13,840).
+  TF-IDF scores 0.982 accuracy on those complaints and 0.746 on the rest of the random split, and 0.820 against 0.705 on the time split.
+  The matching rule, a looser rule and the caveats are in [results/label_in_text.md](results/label_in_text.md); the difference does not prove that the model used the label name.
+- **Zero-shot on this task.** The prompt contains only the class names, and a free-plan model was used (`glm-4.5-flash`, 5 of 1,000 answers were not a valid class; Groq `gpt-oss-20b`, 43 of 1,000). It cannot know NHTSA's labelling habits, such as when staff use `ENGINE` and when `ENGINE AND ENGINE COOLING`.
 - **Latency is measured on one laptop CPU**, so absolute values will differ elsewhere. The Groq latency will include network time.
 - **A discarded first run.** My first full run read the NHTSA files with the wrong text encoding (garbled quotes, for example "doesnât"). I found this while reading real examples, fixed it
   (the files are UTF-8), and ran everything again from scratch. No decision was based on the first run's results, and its test-access log is kept in `results/discarded_run1/` for transparency.

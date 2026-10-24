@@ -103,7 +103,9 @@ Note: confidence from a model is not always honest. A model can be confidently w
    Temperature 0 makes answers as repeatable as possible. The cache means a run can be resumed or repeated without new calls, and raw answers can be inspected.
 
 6. **How did you pick hyperparameters without touching the test set?**
-   On the validation set only. The test set is opened once per system and split, and every access is logged.
+   On the validation set only. Every access to a test set is logged, and a second normal use of the same system and split is refused.
+   The Groq zero-shot run was resumed six times over several days because of rate limits, and each resume read the same 1,000 test items again
+   (`forced = true` in the log, see the README).
 
 7. **What is label noise and how does it affect the results?**
    Labels that are wrong or arguable. Scores measure agreement with NHTSA's label, so some errors are the label's fault. Perfect accuracy is not reachable.

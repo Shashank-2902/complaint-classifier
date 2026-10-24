@@ -43,8 +43,10 @@ up in real use. In this project there are three leaks to avoid:
    small changes). If one copy is in training and another in the test set, the model only has to remember it. We remove exact and
    near duplicates **before** splitting.
 2. **Tuning on the test set.** If you try ten settings and keep the one that scores best on the test set, you have used the test
-   set to train. We pick settings on a separate **validation set**. The test set is opened once, for the final table. The code
-   enforces this: each system can open each test set only once, and every access is written to `results/test_access_log.jsonl`.
+   set to train. We pick settings on a separate **validation set**. The test set is only used for the final table. The code
+   refuses a second normal use of the same system and split, and every access is written to `results/test_access_log.jsonl`. A resumed run is let through and marked
+   `forced = true`. The classical systems and the Z.ai run each have one access per split. The Groq run was resumed six times over several days (rate limits) and each resume
+   read the same 1,000 items again; the README lists the log.
 3. **Same complaint, many rows.** A complaint with several components appears in several rows with the same id. We drop these
    complaints, so no complaint can be in two parts.
 
@@ -102,7 +104,7 @@ scores of all classes, so every class counts the same, no matter how small. A bi
    which is why near duplicates are removed before splitting.
 
 4. **Why do you need a validation set if you have a test set?**
-   Settings must be chosen on data that is not the test set. Otherwise the test score is optimistic. The test set is opened once at the end.
+   Settings must be chosen on data that is not the test set. Otherwise the test score is optimistic. The test set is only used at the end, and every access is logged.
 
 5. **How do you make sure the test set is only used once?**
    Tuning code only receives train and validation data. The test set is loaded through one function that logs the access and refuses a second use. A test checks this.
