@@ -54,6 +54,8 @@ def call_with_retry(chat, messages, sleep=time.sleep, tries=5):
             return chat.complete(messages)
         except Exception as error:  # noqa: BLE001  (the SDK has several error classes, we look at the status code)
             status = getattr(error, "status_code", None)
+            if status is None and ("Connection" in type(error).__name__ or "Timeout" in type(error).__name__):
+                status = 408                                   # the network dropped: treat like a timeout
             if status not in RETRY_STATUS:
                 raise
             text = str(error).lower()

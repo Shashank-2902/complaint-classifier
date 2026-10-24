@@ -1,0 +1,15 @@
+{
+  "system": "groq_zero_shot",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "temperature": 0,
+  "n_items": 1000,
+  "invalid_answers": 43,
+  "latency_ms_per_item": 2422.0,
+  "latency_device": "groq cloud API, includes network time",
+  "prompt_tokens_total": 325502,
+  "completion_tokens_total": 142742,
+  "cost_per_1000_usd": 0.0672,
+  "cost_note": "from token counts and the price list of openai/gpt-oss-20b",
+  "scheme": "time"
+}

@@ -8,3 +8,13 @@
 {"system": "groq_zero_shot", "scheme": "time", "rows": 1000, "forced": true, "time": "2026-10-21T13:34:39+00:00"}
 {"system": "zai_glm_zero_shot", "scheme": "random", "rows": 1000, "forced": false, "time": "2026-10-21T14:49:07+00:00"}
 {"system": "zai_glm_zero_shot", "scheme": "time", "rows": 1000, "forced": false, "time": "2026-10-21T14:49:07+00:00"}
+{"system": "groq_zero_shot", "scheme": "random", "rows": 1000, "forced": true, "time": "2026-10-22T06:34:23+00:00"}
+{"system": "groq_zero_shot", "scheme": "time", "rows": 1000, "forced": true, "time": "2026-10-22T06:34:23+00:00"}
+{"system": "groq_zero_shot", "scheme": "random", "rows": 1000, "forced": true, "time": "2026-10-22T09:02:49+00:00"}
+{"system": "groq_zero_shot", "scheme": "time", "rows": 1000, "forced": true, "time": "2026-10-22T09:02:49+00:00"}
+{"system": "groq_zero_shot", "scheme": "random", "rows": 1000, "forced": true, "time": "2026-10-22T11:41:20+00:00"}
+{"system": "groq_zero_shot", "scheme": "time", "rows": 1000, "forced": true, "time": "2026-10-22T11:41:20+00:00"}
+{"system": "groq_zero_shot", "scheme": "random", "rows": 1000, "forced": true, "time": "2026-10-23T14:27:24+00:00"}
+{"system": "groq_zero_shot", "scheme": "time", "rows": 1000, "forced": true, "time": "2026-10-23T14:27:24+00:00"}
+{"system": "groq_zero_shot", "scheme": "random", "rows": 1000, "forced": true, "time": "2026-10-24T10:08:09+00:00"}
+{"system": "groq_zero_shot", "scheme": "time", "rows": 1000, "forced": true, "time": "2026-10-24T10:08:09+00:00"}

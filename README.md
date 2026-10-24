@@ -36,15 +36,15 @@ test on the newest 20 percent, 2024-07-29 to 2026-10-18).
 | Sentence embeddings + logistic regression | 0.769 | 0.727 | 0.715 | 0.654 | 23 to 25 ms | 0 (local) |
 | Fine-tuned small encoder (DistilBERT) | not run | not run | not run | not run | not run | not run |
 | Z.ai zero-shot (`glm-4.5-flash`, free) | 0.565 | 0.592 | 0.565 | 0.592 | 719 ms | $0 (free plan) |
-| Groq zero-shot (`openai/gpt-oss-20b`) | not run | not run | not run | not run | not run | not run |
+| Groq zero-shot (`openai/gpt-oss-20b`) | 0.645 | 0.629 | 0.645 | 0.629 | 2422 ms | $0.067 |
 
-The zero-shot models are not trained, so they give the same answers for both splits, scored on the same 1,000 items. Their latency includes the network.
+The zero-shot models are not trained, so they give the same answers for both splits, scored on the same 1,000 items. Their latency includes the network and any wait after a rate limit. Groq returned 43 answers (4.3 percent) that were not one of the 15 classes; they count as wrong.
 Latency of the local systems is the median time for one complaint on this laptop CPU (Intel, no GPU), including the embedding step.
 
 ### What the results say
 
 - **The classical baseline wins so far.** TF-IDF with logistic regression is as good as or better than the embedding model, and it is about 10 times faster.
-- **Zero-shot is clearly worse here.** GLM-4.5-Flash scores 0.565 accuracy against 0.735 for TF-IDF on the same items. It understands the complaints but cannot know NHTSA's labelling rules,
+- **Zero-shot is clearly worse here.** On the same 1,000 items, Groq `gpt-oss-20b` scores 0.645 accuracy and GLM-4.5-Flash 0.565, against 0.775 (random split) and 0.735 (time split) for TF-IDF. Groq costs $0.067 per 1000 items, TF-IDF nothing. They understand the complaints but cannot know NHTSA's labelling rules,
   for example when staff use `ENGINE` and when `ENGINE AND ENGINE COOLING`, or what `OTHER` contains. It does better than TF-IDF only on classes whose frequency changed a lot over time
   (`AIR BAGS`, `FORWARD COLLISION AVOIDANCE`), with only 36 and 19 items.
 - **The time split is harder.** Accuracy drops by about 5 points and macro-F1 by about 7 points on newer complaints. NHTSA's component use changes over time:
@@ -58,12 +58,13 @@ Latency of the local systems is the median time for one complaint on this laptop
   `ENGINE` and `ENGINE AND ENGINE COOLING`, two NHTSA components with similar content. Reading real examples, the model is clearly wrong in about two of seven groups of mistakes,
   and the label is arguable in most of the others. See [results/error_analysis.md](results/error_analysis.md) (these judgements are my own reading, not a measurement).
 
-### The rows that are not run yet
+### The row that is not run yet
 
 - **Fine-tuned encoder.** It needs a GPU, which this project's laptop does not have. The training script and a Colab/Kaggle notebook are ready
   ([src/finetune/](src/finetune/)). Start it yourself, see below. Until its predictions are added to `results/predictions/`, the row says "not run".
-- **Groq `gpt-oss-20b`.** Groq's free plan allows only 200,000 tokens per day for this model, about 440 answers per day, so this run on the 1,000 items takes a few days.
-  It is cached and resumable (see below) and will be added when it finishes. Until then, its row says "not run".
+
+The Groq run needed several days because the free plan allows 200,000 tokens per day for this model, about 440 answers per day. The answers are cached
+and the run could be stopped and started again.
 
 ## How the comparison is kept fair
 
@@ -84,7 +85,7 @@ Python 3.11. For the tests you need only `pip install -r requirements-dev.txt`.
 ```bash
 python -m venv .venv
 .venv/Scripts/pip install -r requirements-dev.txt            # Linux/macOS: .venv/bin/pip
-.venv/Scripts/python -m pytest                              # 86 tests, no GPU, no Groq key, no download needed
+.venv/Scripts/python -m pytest                              # 87 tests, no GPU, no Groq key, no download needed
 ```
 
 The full experiment (about 190 MB download, a few hours on a laptop):

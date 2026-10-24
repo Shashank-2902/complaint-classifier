@@ -129,3 +129,21 @@ def test_a_timeout_is_waited_out_and_retried():
     waits = []
     assert groq_zero_shot.call_with_retry(make_chat(handler), [], sleep=waits.append)["content"] == "ENGINE"
     assert len(waits) == 1
+
+
+def test_a_dropped_connection_is_waited_out_and_retried():
+    class APIConnectionError(Exception):
+        pass
+
+    calls = []
+
+    class Chat:
+        def complete(self, messages):
+            calls.append(1)
+            if len(calls) == 1:
+                raise APIConnectionError("Connection error.")
+            return {"content": "ENGINE", "prompt_tokens": 1, "completion_tokens": 1}
+
+    waits = []
+    assert groq_zero_shot.call_with_retry(Chat(), [], sleep=waits.append)["content"] == "ENGINE"
+    assert len(waits) == 1
