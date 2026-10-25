@@ -16,6 +16,13 @@ publishes the complaints that vehicle owners file about safety defects.
 `python -m src.prepare.download` downloads the three files into `data/raw/`. They are not committed:
 they are large (about 190 MB zipped, 870 MB unzipped) and anybody can download them from the source.
 
+**The files change every day.** NHTSA updates these files daily. The data of this project was downloaded on 2026-10-20.
+A fresh download contains whatever NHTSA has changed since then, so it gives different splits, and the results can only be compared on the
+saved prepared dataset: `data/processed/dataset.csv.gz` (not in git, keep a copy) and its fingerprints in `results/data_report.json`.
+The Colab notebook (`src/finetune/colab_finetune.ipynb`) therefore does not download the data again. You upload
+`data/processed/dataset.csv.gz`, and the notebook compares the fingerprint of every split (random and time, train, validation and test) with the ones
+committed in `results/data_report.json`. If one differs, it stops before training.
+
 ## File format
 
 Tab-separated text, 51 fields per row, **no header row**, dates as `YYYYMMDD`. We read these fields

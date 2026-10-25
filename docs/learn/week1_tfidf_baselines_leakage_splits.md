@@ -46,7 +46,7 @@ up in real use. In this project there are three leaks to avoid:
    set to train. We pick settings on a separate **validation set**. The test set is only used for the final table. The code
    refuses a second normal use of the same system and split, and every access is written to `results/test_access_log.jsonl`. A resumed run is let through and marked
    `forced = true`. The classical systems and the Z.ai run each have one access per split. The Groq run was resumed six times over several days (rate limits) and each resume
-   read the same 1,000 items again; the README lists the log.
+   read the same 1,000 items again; the README lists the log. The log does not see Colab sessions: each starts from a fresh clone with an empty log.
 3. **Same complaint, many rows.** A complaint with several components appears in several rows with the same id. We drop these
    complaints, so no complaint can be in two parts.
 

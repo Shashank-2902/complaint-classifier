@@ -1,0 +1,32 @@
+{
+  "system": "finetuned_encoder",
+  "scheme": "time",
+  "model": "distilbert-base-uncased",
+  "epochs": 3,
+  "learning_rate": 5e-05,
+  "batch_size": 32,
+  "max_len": 256,
+  "epoch_table": [
+    {
+      "epoch": 1,
+      "val_macro_f1": 0.7027079774168957,
+      "val_accuracy": 0.7371007371007371
+    },
+    {
+      "epoch": 2,
+      "val_macro_f1": 0.7692070949686907,
+      "val_accuracy": 0.7843619020089608
+    },
+    {
+      "epoch": 3,
+      "val_macro_f1": 0.7811688343028281,
+      "val_accuracy": 0.7918774389362625
+    }
+  ],
+  "latency_ms_per_item": 5.93,
+  "latency_device": "cuda (x86_64)",
+  "cost_per_1000_usd": 0.0,
+  "cost_note": "trained on a free GPU, runs locally, no API cost",
+  "n_items": 13840,
+  "smoke_test": false
+}

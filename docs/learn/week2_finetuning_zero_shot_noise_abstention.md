@@ -63,6 +63,17 @@ and coverage on the test set for each. The API uses the same idea: the response 
 
 Note: confidence from a model is not always honest. A model can be confidently wrong, and the numbers can change on new kinds of data (time split), so the threshold should be re-checked regularly.
 
+### What fine-tuning gave in this project
+
+On the full test sets the fine-tuned DistilBERT scores 0.803 accuracy and 0.790 macro-F1 on the random split and 0.781 and 0.764 on the time split. TF-IDF scores 0.767 and 0.742, and 0.713 and 0.674.
+From the random to the time split, the accuracy of the fine-tuned model falls by 2.2 points, against 5.4 for TF-IDF and 5.1 for the embeddings. Its macro-F1 falls by 2.6 points, against 6.8 and 7.4.
+The class that suffers most from the change over time is `ENGINE AND ENGINE COOLING`: its F1 on the time split is 0.29 for TF-IDF and 0.76 for the fine-tuned model.
+
+A **paired test** compares the two systems on the same complaints. On the random split, 1,144 complaints are right only for the fine-tuned model and 642 only for TF-IDF (exact McNemar p = 7.8 x 10^-33).
+On the time split the counts are 1,595 and 646 (p = 5.2 x 10^-92). So the difference is not chance on this test set. It says nothing about other data.
+
+Why fine-tuning helped is a possible explanation that this project did not test: a model that reads the whole text can use word order and context, and it may cope better when the wording of newer complaints differs from older ones.
+
 ## 2. Code walkthrough
 
 **`src/finetune/`**
@@ -70,7 +81,8 @@ Note: confidence from a model is not always honest. A model can be confidently w
 - `data.py`: helpers without any GPU code (label to number maps, batches, softmax).
 - `train.py`: loads DistilBERT, trains for 3 epochs on the training set, scores validation macro-F1 after every epoch, keeps the best epoch, opens the test set once, and writes
   predictions with confidence and the measured latency. `--smoke` runs a tiny version on validation rows to check the code, never on the test set.
-- `colab_finetune.ipynb`: the notebook for Colab or Kaggle. It prepares the data again with the same seed and **checks that the splits equal the repository's** before training.
+- `colab_finetune.ipynb`: the notebook for Colab. NHTSA changes its files every day, so it does not download the data again. You upload `data/processed/dataset.csv.gz`, and the notebook
+  **checks that the fingerprint of every split equals the one in `results/data_report.json`** before training. The two training cells (random, then time) each run once.
 
 **`src/llm/`**
 
@@ -79,7 +91,7 @@ Note: confidence from a model is not always honest. A model can be confidently w
 - `groq_zero_shot.py`: sends the items, spaces the calls to stay under the rate limit, waits and retries on HTTP 429, stops cleanly on a daily limit and computes the cost from token counts.
 - `providers.py`, `openai_compat.py`, `run_llm.py`: the provider table (Groq and Z.ai), a small client for OpenAI-style APIs, and the run script. It runs the fixed subset and writes predictions in the same format as every other system.
 
-**`src/evaluate/`**: `report.py` builds the results tables from the prediction files and writes "not run" for any missing system. `error_analysis.py` makes confusion matrices and the five most frequent mistakes with real texts. `subsets.py` creates the fixed 1,000-item subset.
+**`src/evaluate/`**: `report.py` builds the results tables from the prediction files and writes "not run" for any missing system. `paired_test.py` compares two systems on the same items with an exact McNemar test. `error_analysis.py` makes confusion matrices and the five most frequent mistakes with real texts. `subsets.py` creates the fixed 1,000-item subset.
 
 **`api/main.py`**: `POST /classify` returns the label, the confidence, the top three classes and `needs_human_review`. It serves the TF-IDF model.
 
@@ -105,7 +117,7 @@ Note: confidence from a model is not always honest. A model can be confidently w
 6. **How did you pick hyperparameters without touching the test set?**
    On the validation set only. Every access to a test set is logged, and a second normal use of the same system and split is refused.
    The Groq zero-shot run was resumed six times over several days because of rate limits, and each resume read the same 1,000 test items again
-   (`forced = true` in the log, see the README).
+   (`forced = true` in the log, see the README). The log cannot see Colab sessions, because each starts from a fresh clone with an empty log, and an earlier Colab session also trained the random split.
 
 7. **What is label noise and how does it affect the results?**
    Labels that are wrong or arguable. Scores measure agreement with NHTSA's label, so some errors are the label's fault. Perfect accuracy is not reachable.
@@ -119,10 +131,24 @@ Note: confidence from a model is not always honest. A model can be confidently w
 10. **Why did you not fine-tune a generative LLM?**
     A small encoder does the same job for a fraction of the cost. A LoRA run is an optional extra row, not part of the core result.
 
+11. **Why does the fine-tuned model lose less on the time split?**
+    The measurement: from the random to the time split its accuracy falls by 2.2 points, against 5.4 for TF-IDF, and its macro-F1 by 2.6 points, against 6.8. Why, I did not test. A possible explanation is that a model that reads
+    the whole text copes better with newer wording. A second possible reason is that this project made one run per split with one seed, so part of the difference could be luck of that run.
+
+12. **What does a paired test add to comparing two accuracy numbers?**
+    It compares the systems on the same complaints and uses only the ones where exactly one system is right. On the random split that is 1,144 against 642, on the time split 1,595 against 646.
+    The exact McNemar test then says how likely such an imbalance is if both were equally good (p = 7.8 x 10^-33 and 5.2 x 10^-92). It says the difference is not chance on this test set and nothing about other data.
+
+13. **Why did you upload the prepared dataset to Colab instead of downloading it again?**
+    NHTSA updates its files every day, and the data of this project was downloaded on 2026-10-20. In Colab a fresh download failed the split check, because the splits were different. So the notebook takes the
+    saved `dataset.csv.gz` and compares the fingerprint of every split with `results/data_report.json`. If one differs, it stops.
+
 ## 4. Glossary
 
 - **Pretrained model**: a model trained on a large amount of general text.
 - **Fine-tuning**: continuing the training on your own labelled data.
+- **McNemar test**: a test for two systems on the same items. It looks only at the items where exactly one of them is right.
+- **Fingerprint**: a short code computed from a list of ids. Two machines with the same fingerprint have the same split.
 - **Epoch**: one pass over the training data.
 - **Encoder / generative model**: a model that builds a representation of a text / one that writes text.
 - **Zero-shot**: solving a task with no training examples, only an instruction.

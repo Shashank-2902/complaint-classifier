@@ -18,3 +18,5 @@
 {"system": "groq_zero_shot", "scheme": "time", "rows": 1000, "forced": true, "time": "2026-10-23T14:27:24+00:00"}
 {"system": "groq_zero_shot", "scheme": "random", "rows": 1000, "forced": true, "time": "2026-10-24T10:08:09+00:00"}
 {"system": "groq_zero_shot", "scheme": "time", "rows": 1000, "forced": true, "time": "2026-10-24T10:08:09+00:00"}
+{"system": "finetuned_encoder", "scheme": "random", "rows": 13840, "forced": false, "time": "2026-10-25T08:31:33+00:00"}
+{"system": "finetuned_encoder", "scheme": "time", "rows": 13840, "forced": false, "time": "2026-10-25T09:38:57+00:00"}

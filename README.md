@@ -14,7 +14,7 @@ including cost, speed and the cases where each system fails.
 
 ## Results
 
-All numbers are measured on the test sets. Every access to a test set is logged, see "How the comparison is kept fair" for what the log shows. Any system that has not been run says "not run".
+All numbers are measured on the test sets. Every access to a test set is logged, see "How the comparison is kept fair" for what the log shows. All five systems have predictions. A system without a prediction file would be shown as "not run".
 Full tables, F1 per class and the confidence thresholds are in [results/results.md](results/results.md).
 
 Two splits: a **random** split (easy: test complaints look like the training ones) and a **time** split (train on the oldest 70 percent,
@@ -26,7 +26,7 @@ test on the newest 20 percent, 2024-07-29 to 2026-10-18).
 | --- | --- | --- | --- | --- | --- | --- |
 | TF-IDF + logistic regression | 0.767 | 0.742 | 0.713 | 0.674 | 2 ms | 0 (local) |
 | Sentence embeddings + logistic regression | 0.756 | 0.736 | 0.705 | 0.662 | 23 to 25 ms | 0 (local) |
-| Fine-tuned small encoder (DistilBERT) | not run | not run | not run | not run | not run | not run |
+| Fine-tuned small encoder (DistilBERT) | 0.803 | 0.790 | 0.781 | 0.764 | 5.6 to 5.9 ms (GPU) | 0 (free GPU) |
 
 **The fixed subset of 1,000 test items (the same items for every system, test items in both splits)**
 
@@ -34,23 +34,29 @@ test on the newest 20 percent, 2024-07-29 to 2026-10-18).
 | --- | --- | --- | --- | --- | --- | --- |
 | TF-IDF + logistic regression | 0.775 | 0.745 | 0.735 | 0.678 | 2 ms | 0 (local) |
 | Sentence embeddings + logistic regression | 0.769 | 0.727 | 0.715 | 0.654 | 23 to 25 ms | 0 (local) |
-| Fine-tuned small encoder (DistilBERT) | not run | not run | not run | not run | not run | not run |
+| Fine-tuned small encoder (DistilBERT) | 0.820 | 0.784 | 0.787 | 0.746 | 5.6 to 5.9 ms (GPU) | 0 (free GPU) |
 | Z.ai zero-shot (`glm-4.5-flash`, free) | 0.565 | 0.592 | 0.565 | 0.592 | 719 ms | $0 (free plan) |
 | Groq zero-shot (`openai/gpt-oss-20b`) | 0.645 | 0.629 | 0.645 | 0.629 | 2422 ms | $0.067 |
 
 The zero-shot models are not trained, so they give the same answers for both splits, scored on the same 1,000 items. Their latency includes the network and any wait after a rate limit. Groq returned 43 answers (4.3 percent) that were not one of the 15 classes; they count as wrong.
-Latency of the local systems is the median time for one complaint on this laptop CPU (Intel, no GPU), including the embedding step.
+Latency of the TF-IDF and embedding systems is the median time for one complaint on this laptop CPU (Intel, no GPU), including the embedding step.
+The fine-tuned encoder's latency was measured on a GPU in Colab (the median of single-text calls, see `src/finetune/train.py`), so it is not comparable with the CPU rows.
 
 ### What the results say
 
-- **The classical baseline wins so far.** TF-IDF with logistic regression is as good as or better than the embedding model, and it is about 10 times faster.
-- **Zero-shot is clearly worse here.** On the same 1,000 items, Groq `gpt-oss-20b` scores 0.645 accuracy and GLM-4.5-Flash 0.565, against 0.775 (random split) and 0.735 (time split) for TF-IDF. Groq costs $0.067 per 1000 items, TF-IDF nothing. They understand the complaints but cannot know NHTSA's labelling rules,
+- **The fine-tuned encoder is the strongest system here.** On the full test sets it scores 0.803 accuracy and 0.790 macro-F1 on the random split and 0.781 and 0.764 on the time split,
+  against 0.767 and 0.742, and 0.713 and 0.674, for TF-IDF. Among the systems that run on a laptop CPU, TF-IDF with logistic regression is as good as or better than the embedding model, and it is about 10 times faster.
+  On the same test items, the fine-tuned encoder is right and TF-IDF wrong on 1,144 complaints, and the other way round on 642, on the random split (exact McNemar p = 7.8 x 10^-33).
+  On the time split the counts are 1,595 and 646 (p = 5.2 x 10^-92). So the difference is not chance on this test set. It says nothing about other data, see [results/paired_test.md](results/paired_test.md).
+- **Zero-shot is clearly worse here.** On the same 1,000 items, Groq `gpt-oss-20b` scores 0.645 accuracy and GLM-4.5-Flash 0.565, against 0.775 (random split) and 0.735 (time split) for TF-IDF and 0.820 and 0.787 for the fine-tuned encoder. Groq costs $0.067 per 1000 items, TF-IDF nothing. They understand the complaints but cannot know NHTSA's labelling rules,
   for example when staff use `ENGINE` and when `ENGINE AND ENGINE COOLING`, or what `OTHER` contains. It does better than TF-IDF only on classes whose frequency changed a lot over time
   (`AIR BAGS`, `FORWARD COLLISION AVOIDANCE`), with only 36 and 19 items.
-- **The time split is harder.** Accuracy drops by about 5 points and macro-F1 by about 7 points on newer complaints. NHTSA's component use changes over time:
+- **The time split is harder, and it hurts the fine-tuned encoder least.** From the random to the time split (full test sets), accuracy falls by 5.4 points for TF-IDF (0.767 to 0.713), 5.1 for the embeddings (0.756 to 0.705)
+  and 2.2 for the fine-tuned encoder (0.803 to 0.781). Macro-F1 falls by 6.8 points for TF-IDF (0.742 to 0.674), 7.4 for the embeddings (0.736 to 0.662) and 2.6 for the fine-tuned encoder (0.790 to 0.764).
+  The zero-shot models are not trained, so they have no drop (the same 1,000 items are scored for both splits). NHTSA's component use changes over time:
   air bag complaints are 15.5 percent of the training part and 3.5 percent of the test part, `ENGINE AND ENGINE COOLING` goes from 0.7 to 3.5 percent, and
-  `FORWARD COLLISION AVOIDANCE` hardly existed before 2020. The F1 of `ENGINE AND ENGINE COOLING` falls to 0.29 on the time split.
-- **Macro-F1 is lower than accuracy** because the small and vague classes are harder (`VEHICLE SPEED CONTROL` 0.45 to 0.52, `OTHER` about 0.63).
+  `FORWARD COLLISION AVOIDANCE` hardly existed before 2020. The F1 of `ENGINE AND ENGINE COOLING` falls from 0.64 to 0.29 for TF-IDF on the time split and from 0.77 to 0.76 for the fine-tuned encoder.
+- **Macro-F1 is lower than accuracy** because the small and vague classes are harder (for TF-IDF, `VEHICLE SPEED CONTROL` 0.45 to 0.52, `OTHER` about 0.63).
 - **Abstaining on low confidence works.** The thresholds are chosen on the validation set (they would accept about 70 and 40 percent of validation items).
   On the time-split test set, TF-IDF answers 68 percent of the items with 83.4 percent accuracy at a confidence of 0.718, and 38.6 percent of the items with
   92.0 percent accuracy at 0.949. The rest would go to a human. On the random split: 88.2 percent accuracy at 70.3 percent coverage, 95.7 percent at 39.7 percent.
@@ -58,10 +64,26 @@ Latency of the local systems is the median time for one complaint on this laptop
   `ENGINE` and `ENGINE AND ENGINE COOLING`, two NHTSA components with similar content. Reading real examples, the model is clearly wrong in about two of seven groups of mistakes,
   and the label is arguable in most of the others. See [results/error_analysis.md](results/error_analysis.md) (these judgements are my own reading, not a measurement).
 
-### The row that is not run yet
+### Fine-tuning
 
-- **Fine-tuned encoder.** It needs a GPU, which this project's laptop does not have. The training script and a Colab/Kaggle notebook are ready
-  ([src/finetune/](src/finetune/)). Start it yourself, see below. Until its predictions are added to `results/predictions/`, the row says "not run".
+The model is `distilbert-base-uncased`, trained for 3 epochs with learning rate 5e-5, batch size 32 and a maximum text length of 256 tokens (the settings in
+`results/predictions/finetuned_encoder__*.meta.json`). After every epoch the model is scored on the validation set, and the epoch with the highest validation
+macro-F1 is kept: its weights are restored before the test set is opened (`src/finetune/train.py`). In both runs this was epoch 3 (validation macro-F1 0.794 on the random split, 0.781 on the time split).
+The validation score was still rising at epoch 3, so a longer run might score higher. I did not try it.
+There was one training run per split, no search over settings and one seed (42 for the torch seed; the batch order uses 42 plus the epoch number).
+The latency (5.6 ms on the random split, 5.9 ms on the time split) is the median of single-text calls on a GPU, so it is not comparable with the CPU rows. The cost is zero because the training ran on a free GPU.
+
+### The fine-tuning runs
+
+I want to be open about how these numbers came about.
+
+- The numbers in the tables come from a second Colab session on 25 Oct 2026 with a T4 GPU. The access log has one entry per split for it, not forced (08:31 and 09:38 UTC).
+- A first Colab session, on another account and earlier, also trained the random split. Its screen showed validation epoch 2 macro-F1 0.786 and accuracy 0.796, epoch 3 0.794 and 0.803, and test accuracy 0.803 and macro-F1 0.790.
+  Its output was not saved. For its time split I do not know whether it reached the test step, because the session disconnected.
+- The access log cannot see that first session, because every Colab session starts from a fresh clone of the repository. So the log does not cover every session: the random test set was opened in the first session as well, and the time test set possibly.
+- The second session gave validation epoch 2 macro-F1 0.788 and accuracy 0.797 (see the meta file), and the same epoch 3 and test numbers to three decimals.
+- The notebook's data download failed the split check in Colab, because NHTSA updates its files daily and the data of this repository was downloaded on 2026-10-20. I fixed it by uploading `data/processed/dataset.csv.gz` and checking its
+  fingerprints against `results/data_report.json`. The notebook now does this (see "Run it").
 
 The Groq run needed several days because the free plan allows 200,000 tokens per day for this model, about 440 answers per day. The answers are cached
 and the run could be stopped and started again.
@@ -79,13 +101,14 @@ and the run could be stopped and started again.
   | Sentence embeddings + logistic regression | 1 (random), 1 (time) | 0 | 13,840 | 21 Oct 2026 |
   | Z.ai GLM-4.5-Flash | 1 (random), 1 (time) | 0 | 1,000 | 21 Oct 2026 |
   | Groq gpt-oss-20b | 7 (random), 7 (time) | 6 per split | 13,840 at the first access, then 1,000 | 21, 22, 23 and 24 Oct 2026 |
-  | Fine-tuned encoder | none, not run | | | |
+  | Fine-tuned encoder (second Colab session) | 1 (random), 1 (time) | 0 | 13,840 | 25 Oct 2026 (08:31 and 09:38) |
 
   The Groq run was resumed several times over four days because the free plan limits the tokens per day. The first access (21 Oct, 12:35 and 12:50) read the full test sets
   of 13,840 rows. After that the run was restricted to the fixed subset of 1,000 items, and each of the six resumes (forced) read the same 1,000 items again and reused the cached answers.
   So the Groq test items were read more than once, but the same prompt was used every time: `src/llm/prompt.py` has one commit (`6092d74`, the first commit of this repository) and
   `git diff 6092d74 HEAD --stat -- src/llm/prompt.py` prints nothing, so it is identical in the first and the last commit.
   The discarded first run (see below) has its own log: TF-IDF and embeddings on 20 Oct, and Groq on the time split on 20 Oct with one forced access on 21 Oct, all 13,840 rows.
+  The log does not see every session: each Colab session starts from a fresh clone with an empty log, and an earlier Colab session also trained the random split (see "The fine-tuning runs").
 - **Settings are chosen on the validation set only.** The confidence thresholds are chosen on validation too.
 - **Fixed seeds** and the same test items for every system. The Groq row runs on a fixed subset of 1,000 test items that are test items in **both** splits, so one run fills both tables.
   Every system is also reported on exactly those 1,000 items in `results/results.md`.
@@ -100,7 +123,7 @@ Python 3.11. For the tests you need only `pip install -r requirements-dev.txt`.
 ```bash
 python -m venv .venv
 .venv/Scripts/pip install -r requirements-dev.txt            # Linux/macOS: .venv/bin/pip
-.venv/Scripts/python -m pytest                              # 96 tests, no GPU, no Groq key, no download needed
+.venv/Scripts/python -m pytest                              # 102 tests, no GPU, no Groq key, no download needed
 ```
 
 The full experiment (about 190 MB download, a few hours on a laptop):
@@ -116,6 +139,7 @@ python -m src.baselines.run_baseline --system tfidf_lr --scheme random --stage f
 #   ... same for --scheme time, and for --system embedding_lr
 
 python -m src.evaluate.report                                # writes results/results.md
+python -m src.evaluate.paired_test                           # fine-tuned against TF-IDF, writes results/paired_test.md
 python -m src.evaluate.error_analysis --system tfidf_lr --scheme time
 ```
 
@@ -128,9 +152,10 @@ python -m src.llm.run_llm --provider zai           # Z.ai glm-4.5-flash (free), 
 
 Every raw answer is cached in `results/llm_cache/`, so a stopped run resumes without new cost. The whole run is about 450,000 tokens, roughly 6 US cents at the listed price.
 
-**Fine-tuned encoder** (you start it, it uses your free GPU quota): open `src/finetune/colab_finetune.ipynb` in Google Colab (GPU runtime) or Kaggle (GPU on, internet on) and run all cells.
-It prepares the data with the same seed, **checks that the splits are identical to this repository's**, trains DistilBERT for both splits (typically 10 to 20 minutes per split on a T4, an estimate that I could not measure without a GPU) and gives you
-`finetune_results.zip`. Unzip it into `results/`, then run `python -m src.evaluate.report`.
+**Fine-tuned encoder** (it uses a free GPU quota): open `src/finetune/colab_finetune.ipynb` in Google Colab (GPU runtime) and run the cells in order, each one once.
+NHTSA updates its files every day, so the notebook does not download the data again. You upload `data/processed/dataset.csv.gz` from your local copy, and the notebook checks its fingerprints against `results/data_report.json`
+before it trains. If they differ, it stops. Training DistilBERT for one split took longer than 30 minutes in the second session. At the end the notebook gives you `finetune_results.zip`. Unzip it in the repository folder
+(the paths inside the zip already start with `results/`), then run `python -m src.evaluate.report`. I could not run the notebook while editing it, so the current version is untested.
 
 **The API** (serves the TF-IDF model, trained on the training and validation parts of the time split):
 
@@ -150,15 +175,17 @@ src/prepare/         download, load, clean, labels, dedupe, splits, the guarded 
 src/baselines/       TF-IDF and embedding systems, tuning and final runs, model export for the API
 src/finetune/        training script and the Colab/Kaggle notebook
 src/llm/             zero-shot prompt, answer parser, cache, rate limit handling, providers (Groq, Z.ai), run script
-src/evaluate/        metrics, confusion analysis, thresholds, results table, label-in-text check
+src/evaluate/        metrics, confusion analysis, thresholds, results table, label-in-text check, paired test
 api/                 FastAPI /classify with the abstain option
-tests/               96 tests, a small real-data file (tests/fixtures), no GPU or key needed
+tests/               102 tests, a small real-data file (tests/fixtures), no GPU or key needed
 docs/learn/          concept notes with walkthroughs, interview questions and glossaries
-results/             results.md, label_in_text.md, error analysis, predictions, tuning files, access log, Groq cache
+results/             results.md, label_in_text.md, paired_test.md, error analysis, predictions, tuning files, access log, Groq cache
 ```
 
 ## Limits and things to know
 
+- **The data changes every day.** NHTSA updates its files daily, and the data of this repository was downloaded on 2026-10-20. A fresh download gives different splits, so results are only comparable on the saved prepared dataset
+  (`data/processed/dataset.csv.gz`, not in git) and its fingerprints in `results/data_report.json`. Keep a copy of that file.
 - **Label noise.** Scores are agreement with NHTSA's label. Two reasonable people can pick different components for the same defect.
 - **Taxonomy and drift.** NHTSA has two similar engine components, and the class mix changes over the years. The time split shows how much this matters.
 - **Sampled data.** The experiments use a random sample of 70,000 of the 554,344 unique single-component complaints, so that they run on a laptop. Results on all data could differ slightly.
