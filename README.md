@@ -123,7 +123,7 @@ Python 3.11. For the tests you need only `pip install -r requirements-dev.txt`.
 ```bash
 python -m venv .venv
 .venv/Scripts/pip install -r requirements-dev.txt            # Linux/macOS: .venv/bin/pip
-.venv/Scripts/python -m pytest                              # 102 tests, no GPU, no Groq key, no download needed
+.venv/Scripts/python -m pytest                              # 116 tests, no GPU, no Groq key, no download needed
 ```
 
 The full experiment (about 190 MB download, a few hours on a laptop):
@@ -157,15 +157,59 @@ NHTSA updates its files every day, so the notebook does not download the data ag
 before it trains. If they differ, it stops. Training DistilBERT for one split took longer than 30 minutes in the second session. At the end the notebook gives you `finetune_results.zip`. Unzip it in the repository folder
 (the paths inside the zip already start with `results/`), then run `python -m src.evaluate.report`. I could not run the notebook while editing it, so the current version is untested.
 
-**The API** (serves the TF-IDF model, trained on the training and validation parts of the time split):
+**The API** (serves the TF-IDF model, trained on the training and validation parts of the time split). The model comes from a folder, `deploy/model` by default (set `MODEL_DIR` to use another one):
 
 ```bash
-python -m src.baselines.export_model --scheme time
+python scripts/track_tfidf.py --scheme time                  # fit, score the VALIDATION split only, log to a local MLflow folder (mlruns/), register the model
+python scripts/export_registered_model.py --compare models/tfidf_lr.joblib   # write deploy/model/ and MODEL_CARD.md
 uvicorn api.main:app --port 8000                              # then open http://localhost:8000/docs
 ```
 
-`POST /classify` with `{"text": "..."}` returns the label, the confidence, the top three classes and `needs_human_review`.
-Below the confidence threshold (0.718 by default, or send your own) the answer is "needs human review".
+`POST /classify` with `{"text": "..."}` returns the label, the confidence, the top three classes, `needs_human_review` and the `model_version`.
+Below the confidence threshold (0.718 by default, or send your own) the answer is "needs human review". A text longer than 5,000 characters gets a 422.
+`GET /health` returns the status and the `model_version`. `scripts/track_tfidf.py` never scores the test set: it logs the published test numbers from `results/results.md` as tags, with their source.
+`python -m src.baselines.export_model --scheme time` still writes `models/tfidf_lr.joblib`, which the export script uses to check that it gives the same predictions.
+
+## Deployment on Azure
+
+**Nothing is deployed.** This section describes how the API can be deployed. The Docker image was built and run on localhost (`docs/deploy_local_check.md`). The Terraform files pass `terraform validate`.
+The deploy workflow and the Terraform apply were not run.
+
+The API runs in a Docker image (Python 3.11 slim, non-root user, the model baked in from `deploy/model`) on Azure Container Apps. Terraform (`infra/terraform/`) describes a resource group, a container registry,
+a log workspace with a small daily quota, a Container Apps environment and the container app with external HTTPS ingress, 0.25 vCPU and 0.5 Gi, and 0 to 1 replicas.
+The app pulls the image from the registry with a managed identity that has the AcrPull role, so there is no registry password. The model is tracked with MLflow on the laptop: a script registers it and another exports a
+registered version to `deploy/model`, together with a model card that lists the version, the data fingerprints and the metrics. The CI builds the image and checks `/health`, and validates the Terraform files without credentials.
+A separate workflow (`.github/workflows/deploy.yml`, tags `v*` or a manual start) would test, build, log in to Azure with OIDC, push the image and update the app.
+
+Run the image locally:
+
+```bash
+docker build -t complaint-classifier:local .
+docker run -d --name cc-local -p 127.0.0.1:8000:8000 complaint-classifier:local
+curl http://127.0.0.1:8000/health
+```
+
+Deploy and tear down with the scripts (they ask you to type a confirmation first, and need the Azure CLI, Terraform and Docker):
+
+```powershell
+pwsh ./infra/deploy.ps1
+pwsh ./infra/teardown.ps1
+```
+
+Both scripts stop unless you are logged in and the active subscription name contains "Azure for Students" (change it with `-ExpectedSubscription`).
+The image is only set when the container app is first created: the Terraform file ignores later image changes, because the deploy workflow updates the image outside Terraform.
+To update the image by hand: `az containerapp update --name <app> --resource-group <group> --image <registry>/complaint-classifier:<tag>`.
+
+Steps, including how to create the OIDC credentials (not tested yet): [infra/README.md](infra/README.md). Check the costs in the Azure portal before you deploy. This README states no price.
+
+Limits:
+- It serves the TF-IDF model only, because the weights of the fine-tuned encoder were not saved.
+- Scale to zero means a cold start: the first request after a quiet period has to wait for a container to start.
+- The endpoint is public and has no login. So there is a size limit on the text (5,000 characters) and at most one replica.
+- Student credit expires, and then the app stops working or costs real money.
+- The deploy workflow and the Terraform apply were not run, and the OIDC steps are untested.
+
+Deployed on: not yet
 
 ## Project layout
 
@@ -176,8 +220,11 @@ src/baselines/       TF-IDF and embedding systems, tuning and final runs, model 
 src/finetune/        training script and the Colab/Kaggle notebook
 src/llm/             zero-shot prompt, answer parser, cache, rate limit handling, providers (Groq, Z.ai), run script
 src/evaluate/        metrics, confusion analysis, thresholds, results table, label-in-text check, paired test
-api/                 FastAPI /classify with the abstain option
-tests/               102 tests, a small real-data file (tests/fixtures), no GPU or key needed
+api/                 FastAPI /classify with the abstain option, /health and the model version
+deploy/model/        the exported model, its model card and its info file (what the Docker image contains)
+scripts/             MLflow tracking and export of the registered model, test fixture builder
+infra/               Terraform for Azure Container Apps, deploy and teardown scripts, OIDC steps
+tests/               116 tests, a small real-data file (tests/fixtures), no GPU or key needed
 docs/learn/          concept notes with walkthroughs, interview questions and glossaries
 results/             results.md, label_in_text.md, paired_test.md, error analysis, predictions, tuning files, access log, Groq cache
 ```

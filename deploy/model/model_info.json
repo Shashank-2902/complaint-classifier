@@ -1,0 +1,15 @@
+{
+  "model_name": "complaint-classifier-tfidf",
+  "model_version": "1",
+  "run_id": "8c23a8e1b1c748e9b00d6c72b68d7274",
+  "scheme": "time",
+  "exported_utc": "2026-10-26T16:57:26+00:00",
+  "fingerprints": {
+    "random_train": "ed4f99d737e105b4",
+    "random_val": "8e1aa3884a9ff111",
+    "random_test": "61fdf66347a331be",
+    "time_train": "b9f3550c176f6d69",
+    "time_val": "6ddc9383b4ca9996",
+    "time_test": "c6d84548fafe1d62"
+  }
+}

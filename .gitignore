@@ -8,3 +8,12 @@ data/processed/
 models/
 results/smoke/
 *.zip
+mlruns/
+
+# Terraform (the same rules are in infra/terraform/.gitignore)
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+crash.log
+crash.*.log

@@ -15,3 +15,38 @@ jobs:
       - run: pip install -r requirements-dev.txt
       # The tests need no GPU, no Groq key and no download: they use a fake model and a small real-data file.
       - run: pytest -q
+
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Builds the image without pushing it, starts it and checks /health.
+      - run: docker build -t complaint-classifier:ci .
+      - name: Start the container and check /health
+        run: |
+          docker run -d --name api -p 8000:8000 complaint-classifier:ci
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:8000/health > health.json; then
+              cat health.json
+              grep -q '"status":"ok"' health.json
+              exit 0
+            fi
+            sleep 2
+          done
+          docker logs api
+          exit 1
+
+  terraform-validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infra/terraform
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.17.0"
+      # No credentials: init without a backend and validate only check the files.
+      - run: terraform fmt -check
+      - run: terraform init -backend=false -input=false
+      - run: terraform validate

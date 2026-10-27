@@ -1,3 +1,6 @@
+import importlib
+
+import joblib
 import numpy as np
 import pytest
 from fastapi.testclient import TestClient
@@ -13,7 +16,8 @@ def client(prepared_dir, tmp_path, monkeypatch):
     """The API with a small model trained on the fixture data."""
     frames = dataset.load_split("random", prepared_dir)
     vectorizer, classifier = tfidf.fit(frames["train"], c=10)
-    bundle = {"vectorizer": vectorizer, "classifier": classifier, "classes": list(classifier.classes_), "thresholds": [0.4, 0.6]}
+    bundle = {"vectorizer": vectorizer, "classifier": classifier, "classes": list(classifier.classes_), "thresholds": [0.4, 0.6],
+              "model_version": "7"}
     monkeypatch.setitem(main.state, "bundle", bundle)
     return TestClient(main.app)
 
@@ -23,7 +27,8 @@ TEXT = "The air bag warning light stayed on and the air bag did not deploy durin
 
 def test_classify_returns_label_confidence_and_top_three(client):
     answer = client.post("/classify", json={"text": TEXT}).json()
-    assert set(answer) == {"label", "confidence", "needs_human_review", "threshold_used", "top"}
+    assert set(answer) == {"label", "confidence", "needs_human_review", "threshold_used", "top", "model_version"}
+    assert answer["model_version"] == "7"
     assert len(answer["top"]) == 3 and answer["top"][0]["label"] == answer["label"]
     assert 0 < answer["confidence"] <= 1
 
@@ -46,9 +51,51 @@ def test_bad_requests_are_refused(client):
 
 def test_missing_model_gives_503_with_instructions(monkeypatch, tmp_path):
     monkeypatch.setitem(main.state, "bundle", None)
-    monkeypatch.setattr(main, "MODEL_PATH", tmp_path / "nothing.joblib")
+    monkeypatch.setattr(main, "MODEL_DIR", tmp_path / "nothing")
     answer = TestClient(main.app).post("/classify", json={"text": TEXT})
-    assert answer.status_code == 503 and "export_model" in answer.json()["detail"]
+    assert answer.status_code == 503 and "export_registered_model" in answer.json()["detail"]
+    assert TestClient(main.app).get("/health").status_code == 503
+
+
+# ---------- health, model version, model folder, text size ----------
+
+def test_health_reports_status_and_the_model_version(client):
+    assert client.get("/health").json() == {"status": "ok", "model_version": "7"}
+
+
+def test_an_old_model_without_a_version_says_unknown(client, monkeypatch):
+    monkeypatch.setitem(main.state, "bundle", {**main.state["bundle"], "model_version": None})
+    del main.state["bundle"]["model_version"]
+    assert client.get("/health").json()["model_version"] == "unknown"
+
+
+def test_the_model_is_read_from_model_dir(client, monkeypatch, tmp_path):
+    bundle = dict(main.state["bundle"], model_version="42")
+    joblib.dump(bundle, tmp_path / "tfidf_lr.joblib")
+    monkeypatch.setitem(main.state, "bundle", None)
+    monkeypatch.setattr(main, "MODEL_DIR", tmp_path)
+    assert client.get("/health").json() == {"status": "ok", "model_version": "42"}
+    assert client.post("/classify", json={"text": TEXT}).json()["model_version"] == "42"
+
+
+def test_model_dir_comes_from_the_environment_and_defaults_to_deploy_model(monkeypatch, tmp_path):
+    monkeypatch.delenv("MODEL_DIR", raising=False)
+    assert importlib.reload(main).MODEL_DIR.parts[-2:] == ("deploy", "model")
+    monkeypatch.setenv("MODEL_DIR", str(tmp_path))
+    assert importlib.reload(main).MODEL_DIR == tmp_path
+    monkeypatch.delenv("MODEL_DIR")
+    importlib.reload(main)
+
+
+def test_a_text_over_5000_characters_is_refused_with_a_clear_422(client):
+    answer = client.post("/classify", json={"text": "a" * 5001})
+    assert answer.status_code == 422
+    message = answer.json()["detail"][0]["msg"]
+    assert "5001 characters" in message and "limit is 5000" in message
+
+
+def test_a_text_of_exactly_5000_characters_is_accepted(client):
+    assert client.post("/classify", json={"text": ("air bag " * 700)[:5000]}).status_code == 200
 
 
 # ---------- fine-tuning helpers (no GPU, no torch) ----------

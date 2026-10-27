@@ -1,0 +1,48 @@
+# NOT TESTED YET. This workflow has never run. It needs the Azure resources from infra/terraform and an OIDC
+# credential, see infra/README.md.
+name: Deploy
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  id-token: write   # needed for the OIDC login to Azure
+  contents: read
+
+env:
+  RESOURCE_GROUP: rg-complaintclf     # rg-<name_prefix> from infra/terraform
+  CONTAINER_APP: ca-complaintclf      # ca-<name_prefix>
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: azure   # the federated credential is tied to this GitHub environment, see infra/README.md
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements-dev.txt
+      - run: pytest -q
+      - name: Log in to Azure with OIDC (no password)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      - name: Build and push the image
+        run: |
+          REGISTRY=$(az acr list --resource-group "$RESOURCE_GROUP" --query "[0].name" -o tsv)
+          SERVER=$(az acr show --name "$REGISTRY" --query loginServer -o tsv)
+          IMAGE="$SERVER/complaint-classifier:${GITHUB_SHA}"
+          az acr login --name "$REGISTRY"
+          docker build -t "$IMAGE" .
+          docker push "$IMAGE"
+          echo "IMAGE=$IMAGE" >> "$GITHUB_ENV"
+      - name: Install the Azure CLI extension for Container Apps
+        run: az extension add --name containerapp --upgrade --yes
+      - name: Update the container app
+        run: az containerapp update --name "$CONTAINER_APP" --resource-group "$RESOURCE_GROUP" --image "$IMAGE"
